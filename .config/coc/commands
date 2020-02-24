@@ -1,0 +1,3 @@
+python.setInterpreter
+python.upgradePythonLanguageServer
+python.startREPL

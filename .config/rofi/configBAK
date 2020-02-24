@@ -1,0 +1,8 @@
+rofi.lines: 10
+rofi.fullscreen: true
+rofi.font: RobotoMono Nerd Font 16
+rofi.bw: 0
+#rofi.separator-style: none
+rofi.hide-scrollbar: true
+rofi.color-window: #A6222227
+rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi

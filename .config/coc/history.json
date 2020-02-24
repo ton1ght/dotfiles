@@ -1,0 +1,24 @@
+{
+  "commands": {
+    "%2Fhome%2Fzoloboz": [
+      "python.upgrade",
+      "python",
+      "pyhon"
+    ]
+  },
+  "marketplace": {
+    "%2Fhome%2Fzoloboz": [
+      "sh"
+    ]
+  },
+  "lists": {
+    "%2Fhome%2Fzoloboz": [
+      "ex"
+    ]
+  },
+  "extensions": {
+    "%2Fhome%2Fzoloboz": [
+      "qq"
+    ]
+  }
+}
