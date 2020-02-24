@@ -261,13 +261,13 @@ for_window [title="dropdown"] sticky enable
 #######################################
 
 ######### COLOR SETTINGS     ##########
-set $coloract "#6c99a6"
-set $colorin "#4a6972"
-set_from_resource $color15 i3wm.color15 "#ECEFF4"
-set_from_resource $split i3wm.color10 "#A3BE8C"
-set_from_resource $coloru i3wm.color2 "#A3BE8C"
-set_from_resource $color0 i3wm.color0 "#3B4252"
-set_from_resource $color8 i3wm.color8 "#4C566A"
+set $coloract "{active}"
+set $colorin "{inactive}"
+set_from_resource $color15 i3wm.color15 "{color15}"
+set_from_resource $split i3wm.color10 "{color10}"
+set_from_resource $coloru i3wm.color2 "{color2}"
+set_from_resource $color0 i3wm.color0 "{color0}"
+set_from_resource $color8 i3wm.color8 "{color8}"
 
 # class                 border    backgr    text    indicator child_border
 client.focused          $coloract $coloract $color15 $split  $coloract

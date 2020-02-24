@@ -1,5 +1,6 @@
 # get colors from wpg
-(cat $HOME/.config/wpg/sequences &)
+# (cat $HOME/.config/wpg/sequences &)
+cat ~/.config/wpg/sequences
 
 ###############################################################
 # => exports
@@ -8,6 +9,8 @@
 export TERM="xterm-256color"
 export SUDO_EDITOR="/usr/bin/vim"
 export LANG=en_US.UTF-8
+export VISUAL=vim
+export EDITOR=vim
 
 ###############################################################
 # => zplug
@@ -30,7 +33,8 @@ alias info="pacman -Q --info"
 alias grep="grep --color=auto"
 alias packages="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
 alias pm="sudo pacman -S"
-alias ls="lsd -l"
+alias ls="exa -l --group-directories-first"
+alias ll="exa -al --group-directories-first"
 alias removeorphans="sudo pacman -Rns $(pacman -Qtdq)"
 alias polybarconfig="vim ~/.config/wpg/templates/polybar.base"
 alias hirnlogin="~/bin/hirnlogin.sh"
@@ -39,6 +43,8 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 alias zshrc="vim ~/.zshrc"
 alias rangerconfig="vim ~/.config/ranger/rc.conf"
+alias ranger="~/bin/ranger.sh"
+alias termite="~/bin/termite.sh"
 alias vimrc="vim ~/.vimrc"
 alias shconfig="vim .bashrc"
 alias i3config="vim ~/.config/wpg/templates/i3.base"
