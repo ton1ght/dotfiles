@@ -8,10 +8,11 @@
 # / _ \/ // /
 #/_.__/\_, / 
 #     /___/  
-#           __     __          
-# ___ ___  / /__  / /  ___  ___
-#/_ // _ \/ / _ \/ _ \/ _ \/_ /
-#/__/\___/_/\___/_.__/\___//__/
+#  __           ___     __   __ 
+# / /____  ___ <  /__ _/ /  / /_
+#/ __/ _ \/ _ \/ / _ `/ _ \/ __/
+#\__/\___/_//_/_/\_, /_//_/\__/ 
+#               /___/           
 
 
 ######### GENERAL SETTINGS   ##########
@@ -126,7 +127,6 @@ bindsym $mod+Shift+w exec rofi -show window
 # scratchpad calc
 bindsym $mod+BackSpace [title="^calc$"] scratchpad show
 bindsym $mod+Shift+BackSpace [title="^calc$"] move scratchpad
-
 #######################################
 
 ######### WINDOW SETTINGS    ##########
@@ -184,12 +184,9 @@ bindsym $mod+z resize shrink width 5 px or 5 ppt
 bindsym $mod+u resize grow height 5 px or 5 ppt
 bindsym $mod+i resize shrink height 5 px or 5 ppt
 bindsym $mod+o resize grow width 5 px or 5 ppt
-
 #######################################
 
 ######### WORKSPACE SETTINGS ##########
-
-
 set $ws1 " 1  "
 set $ws2 " 2  "
 set $ws3 "3 "
@@ -200,17 +197,6 @@ set $ws7 "7 "
 set $ws8 "8 "
 set $ws9 "9 "
 set $ws10 "10 "
-
-# workspace $ws1 output DP1-2-1 eDP-1-1
-# workspace $ws2 output DP1-2-1 eDP-1-1
-# workspace $ws3 output DP1-2-1 eDP-1-1
-# workspace $ws4 output DP1-2-1 eDP-1-1
-# workspace $ws5 output DP1-2-1 eDP-1-1
-# workspace $ws6 output DP-1-1 eDP-1-1
-# workspace $ws7 output DP-1-1 eDP-1-1
-# workspace $ws8 output DP-1-1 eDP-1-1
-# workspace $ws9 output DP-1-1 eDP-1-1
-# workspace $ws10 output DP-1-1 eDP-1-1
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -247,7 +233,6 @@ for_window [window_role="pop-up"] floating enable
 # assign applications to specific workspaces
 assign [class="Seafile"] $ws9
 assign [class="Thunderbird"] $ws3
-#assign [class="Gajim"] $ws8
 assign [class="Signal"] $ws8
 assign [class="Telegram"] $ws8
 assign [class="keepassxc"] $ws7
@@ -277,4 +262,3 @@ client.urgent           $coloru   $coloru   $color15 $coloru $coloru
 client.placeholder      $color0   $color0   $color15 $color0 $color0
 client.background       $color0
 #######################################
-
