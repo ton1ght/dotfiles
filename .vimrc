@@ -30,6 +30,7 @@
 " => vimplug
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
+"Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "Plug 'Shougo/neosnippet-snippets'
 "Plug 'Shougo/neosnippet.vim'
@@ -42,7 +43,6 @@ call plug#begin('~/.vim/plugged')
 "Plug 'junegunn/fzf.vim'
 "Plug 'junegunn/goyo.vim'
 "Plug 'llvm-mirror/clang-tools-extra'
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'rhysd/vim-grammarous'
 "Plug 'valloric/youcompleteme'
 "Plug 'vim-latex/vim-latex'
@@ -53,7 +53,7 @@ Plug 'dylanaraps/wal.vim'
 Plug 'honza/vim-snippets'
 Plug 'lervag/vimtex'
 Plug 'liuchengxu/vista.vim'
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ryanoasis/vim-devicons' 
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
