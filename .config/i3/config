@@ -1,24 +1,12 @@
-#   _ ____               ____     
-#  (_)_  /_______  ___  / _(_)__ _
-# / //_ </ __/ _ \/ _ \/ _/ / _ `/
-#/_/____/\__/\___/_//_/_//_/\_, / 
-#                          /___/  
-#   __       
-#  / /  __ __
-# / _ \/ // /
-#/_.__/\_, / 
-#     /___/  
 #   __           ___     __   __ 
 #  / /____  ___ <  /__ _/ /  / /_
 # / __/ _ \/ _ \/ / _ `/ _ \/ __/
 # \__/\___/_//_/_/\_, /_//_/\__/ 
 #                /___/           
-
+# https://github.com/ton1ght
 
 ######### GENERAL SETTINGS   ##########
-# WindowsKey
 set $mod Mod4
-# font
 font xft:RobotoMono Nerd Font 8
 #######################################
 
@@ -42,7 +30,6 @@ exec --no-startup-id redshift
 exec --no-startup-id seafile-applet
 exec --no-startup-id nm-applet
 exec_always --no-startup-id ~/Repos/i3-alternating-layout/alternating_layouts.py
-exec --no-startup-id dockd --daemon
 exec --no-startup-id termite -t calc -e "python -q"
 exec --no-startup-id termite -t dropdown
 exec --no-startup-id protonmail-bridge --no-window
@@ -187,8 +174,6 @@ bindsym $mod+o resize grow width 5 px or 5 ppt
 #######################################
 
 ######### WORKSPACE SETTINGS ##########
-
-
 set $ws1 " 1  "
 set $ws2 " 2  "
 set $ws3 "3 "
@@ -199,17 +184,6 @@ set $ws7 "7 "
 set $ws8 "8 "
 set $ws9 "9 "
 set $ws10 "10 "
-
-# workspace $ws1 output DP1-2-1 eDP-1-1
-# workspace $ws2 output DP1-2-1 eDP-1-1
-# workspace $ws3 output DP1-2-1 eDP-1-1
-# workspace $ws4 output DP1-2-1 eDP-1-1
-# workspace $ws5 output DP1-2-1 eDP-1-1
-# workspace $ws6 output DP-1-1 eDP-1-1
-# workspace $ws7 output DP-1-1 eDP-1-1
-# workspace $ws8 output DP-1-1 eDP-1-1
-# workspace $ws9 output DP-1-1 eDP-1-1
-# workspace $ws10 output DP-1-1 eDP-1-1
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -275,4 +249,3 @@ client.urgent           $coloru   $coloru   $color15 $coloru $coloru
 client.placeholder      $color0   $color0   $color15 $color0 $color0
 client.background       $color0
 #######################################
-
