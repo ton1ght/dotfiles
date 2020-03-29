@@ -73,7 +73,7 @@ map L $
 
 " mappings
 map <C-f> :NERDTreeToggle<CR>
-map <C-v> :Vista<CR>
+map <C-t> :Vista<CR>
 
 " fzf mappings
 map <C-p> :Files<CR>
