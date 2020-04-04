@@ -102,17 +102,6 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 " # STYLE
 " ################################################################################################
 
-let g:lightline = {
-	\ 'colorscheme': 'base16',
-	\ 'active': {
-	\   'left': [ [ 'mode', 'paste' ],
-	\             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
-	\ },
-	\ 'component_function': {
-	\   'cocstatus': 'coc#status'
-	\ },
-\ }
-
 set background=dark
 let base16colorspace=256
 colorscheme base16-dracula
@@ -153,14 +142,16 @@ let g:goyo_height = "80%"
 let g:goyo_linenr = 1
 
 " statusline settings
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-let g:airline_left_alt_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'wal'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#whitespace#mixed_indent_algo = 1
+let g:lightline = {
+	\ 'colorscheme': 'base16',
+	\ 'active': {
+	\   'left': [ [ 'mode', 'paste' ],
+	\             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+	\ },
+	\ 'component_function': {
+	\   'cocstatus': 'coc#status'
+	\ },
+\ }
 
 " ################################################################################################
 " # THE FOLLOWING IS RECOMMENDED BY COC

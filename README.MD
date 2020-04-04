@@ -24,6 +24,8 @@
 
 [vim-base16-lightline](https://www.github.com/daviesjamie/vim-base16-lightline)
 
+[lightline](https://www.github.com/itchyny/lightline.vim)
+
 [vimtex](https://www.github.com/lervag/vimtex)
 
 [vista.vim](https://www.github.com/liuchengxu/vista.vim)
@@ -38,7 +40,6 @@
 
 [vim-surround](https://www.github.com/tpope/vim-surround)
 
-[lightline](https://www.github.com/itchyny/lightline.vim)
 
 ## Shell
 
