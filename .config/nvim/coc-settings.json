@@ -1,17 +1,23 @@
 {
+  "languageserver": {
     "ccls": {
       "command": "ccls",
-      "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
-      "rootPatterns": [".ccls-root", "compile_commands.json"],
+      "filetypes": ["c", "cpp", "objc", "objcpp"],
+      "rootPatterns": [".ccls", ".git/", ".hg/"],
       "initializationOptions": {
-        "cache": {
-          "directory": ".ccls-cache"
-        },
-        "client": {
-          "snippetSupport": true
-        }
-      }
+		 "compilationDatabaseDirectory" : "build-debugoptimized",
+         "cache": {
+           "directory": "/tmp/ccls"
+         }
+       }
     },
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    }
+  },
   "python.jediEnabled": false,
   "python.setInterpreter": "/usr/bin/python"
 }

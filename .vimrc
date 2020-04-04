@@ -52,6 +52,12 @@ set gdefault
 " # MAPPINGS
 " ################################################################################################
 
+" set leader
+let mapleader = ","
+
+" remove highlight after search
+nnoremap <leader><cr> :noh<cr>
+
 " No arrow keys --- force yourself to use the home row
 nnoremap <up> <nop>
 nnoremap <down> <nop>
@@ -70,6 +76,8 @@ nnoremap <silent> g* g*zz
 " Jump to start and end of line using the home row keys
 map H ^
 map L $
+
+map <leader>g :Goyo<CR>
 
 " mappings
 map <C-f> :NERDTreeToggle<CR>
@@ -94,27 +102,33 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 " # STYLE
 " ################################################################################################
 
-" Set every line number, except the current one, to a different color
-highlight LineNr ctermfg=4
+let g:lightline = {
+	\ 'colorscheme': 'base16',
+	\ 'active': {
+	\   'left': [ [ 'mode', 'paste' ],
+	\             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+	\ },
+	\ 'component_function': {
+	\   'cocstatus': 'coc#status'
+	\ },
+\ }
 
-" split style
-set fillchars=vert:\│
-highlight VertSplit cterm=NONE
-highlight VertSplit ctermbg=NONE ctermfg=0
-highlight StatusLine ctermfg=0
-highlight StatusLineNC ctermfg=0
-
-" set signcolumn color
-hi! link SignColumn LineNr
+set background=dark
+let base16colorspace=256
+colorscheme base16-dracula
 
 " ################################################################################################
 " # PLUGINS
 " ################################################################################################
 
 call plug#begin('~/.vim/plugged')
+Plug 'itchyny/lightline.vim'
+Plug 'jremmen/vim-ripgrep'
+Plug 'daviesjamie/vim-base16-lightline'
 Plug 'junegunn/fzf.vim'
+" Plug 'chriskempson/base16-vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-"Plug 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim'
 Plug 'airblade/vim-rooter'
 Plug 'dylanaraps/wal.vim'
 Plug 'honza/vim-snippets'
@@ -125,13 +139,18 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 " ################################################################################################
 " # PLUGIN SETTINGS
 " ################################################################################################
+
+" goyo settings
+let g:goyo_width = "60%+20%"
+let g:goyo_height = "80%"
+let g:goyo_linenr = 1
 
 " statusline settings
 let g:airline_left_sep=''
@@ -142,9 +161,6 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'wal'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#whitespace#mixed_indent_algo = 1
-
-" vista settings
-let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 
 " ################################################################################################
 " # THE FOLLOWING IS RECOMMENDED BY COC
@@ -198,6 +214,7 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gc <Plug>(coc-declaration)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)

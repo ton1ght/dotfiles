@@ -14,9 +14,15 @@
 
 [vim-rooter](https://www.github.com/airblade/vim-rooter)
 
-[wal.vim](https://www.github.com/dylanaraps/wal.vim)
+[vim-ripgrep](https://www.github.com/jremmen/vim-ripgrep)
 
-[vim-snippets](https://www.github.com/honza/vim-snippets')
+[vim-snippets](https://www.github.com/honza/vim-snippets)
+
+[goyo.vim](https://www.github.com/dylanaraps/wal.vim)
+
+[vim-base16](https://www.github.com/chriskempson/base16-vim/)
+
+[vim-base16-lightline](https://www.github.com/daviesjamie/vim-base16-lightline)
 
 [vimtex](https://www.github.com/lervag/vimtex)
 
@@ -32,9 +38,7 @@
 
 [vim-surround](https://www.github.com/tpope/vim-surround)
 
-[vim-airline](https://www.github.com/vim-airline/vim-airline)
-
-[vim-airline-themes](https://www.github.com/vim-airline/vim-airline-themes)
+[lightline](https://www.github.com/itchyny/lightline.vim)
 
 ## Shell
 

@@ -7,7 +7,7 @@
 clickable_url = true
 dynamic_title = true
 font = Hack Nerd Font Mono 11
-padding = 20
+padding = 0
 #fullscreen = true
 #icon_name = terminal
 #mouse_autohide = false
@@ -42,49 +42,51 @@ scrollback_lines = 10000
 #scrollbar = off
 
 [colors]
-# If both of these are unset, cursor falls back to the foreground color,
-# and cursor_foreground falls back to the background color.
-#cursor = #dcdccc
-#cursor_foreground = #dcdccc
+# Base16 Material Palenight
+# Author: Nate Peterson
 
-#foreground = #dcdccc
-#foreground_bold = #ffffff
-background = #383c4a
+foreground          = #959DCB
+foreground_bold     = #959DCB
+cursor              = #959DCB
+cursor_foreground   = #292D3E
+background          = rgba(41, 45, 62)
 
-# 20% background transparency (requires a compositor)
-# background = rgba(59, 66, 82, 1)
-# background = rgba( 0, 0, 0, 0.8)
+# 16 color space
 
-# If unset, will reverse foreground and background
-highlight = #4C566A
+# Black, Gray, Silver, White
+color0  = #292D3E
+color8  = #676E95
+color7  = #959DCB
+color15 = #FFFFFF
 
-# Colors from color0 to color254 can be set
-color0 = #3f3f3f
-color1 = #705050
-color2 = #60b48a
-color3 = #dfaf8f
-color4 = #506070
-color5 = #dc8cc3
-color6 = #8cd0d3
-color7 = #dcdccc
-color8 = #709080
-color9 = #dca3a3
-color10 = #c3bf9f
-color11 = #f0dfaf
-color12 = #94bff3
-color13 = #ec93d3
-color14 = #93e0e3
-color15 = #ffffff
+# Red
+color1  = #F07178
+color9  = #F07178
 
-[hints]
-#font = Monospace 12
-#foreground = #dcdccc
-#background = #3f3f3f
-#active_foreground = #e68080
-#active_background = #3f3f3f
-padding = 10
-#border = #3f3f3f
-#border_width = 0.5
-#roundness = 2.0
+# Green
+color2  = #C3E88D
+color10 = #C3E88D
 
-# vim: ft=dosini cms=#%s
+# Yellow
+color3  = #FFCB6B
+color11 = #FFCB6B
+
+# Blue
+color4  = #82AAFF
+color12 = #82AAFF
+
+# Purple
+color5  = #C792EA
+color13 = #C792EA
+
+# Teal
+color6  = #89DDFF
+color14 = #89DDFF
+
+# Extra colors
+color16 = #F78C6C
+color17 = #FF5370
+color18 = #444267
+color19 = #32374D
+color20 = #8796B0
+color21 = #959DCB

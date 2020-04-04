@@ -1,16 +1,22 @@
 # get colors from wpg
 # (cat $HOME/.config/wpg/sequences &)
-cat ~/.config/wpg/sequences
+# cat ~/.config/wpg/sequences
+
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 ###############################################################
 # => exports
 ###############################################################
 
 export TERM="xterm-256color"
-export SUDO_EDITOR="/usr/bin/vim"
+export SUDO_EDITOR="/usr/bin/nvim"
 export LANG=en_US.UTF-8
-export VISUAL=vim
-export EDITOR=vim
+export VISUAL=nvim
+export EDITOR=nvim
 
 ###############################################################
 # => zplug
@@ -19,6 +25,7 @@ export EDITOR=vim
 source ~/.zplug/init.zsh
 zplug romkatv/powerlevel10k, use:powerlevel10k.zsh-theme
 zplug "zsh-users/zsh-autosuggestions"
+# zplug "sindresorhus/pure"
 zplug "zsh-users/zsh-completions"
 zplug "junegunn/fzf", use:"shell/completion.zsh"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
@@ -40,11 +47,8 @@ alias polybarconfig="vim ~/.config/wpg/templates/polybar.base"
 alias hirnlogin="~/bin/hirnlogin.sh"
 alias vim="nvim"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
 alias zshrc="vim ~/.zshrc"
 alias rangerconfig="vim ~/.config/ranger/rc.conf"
-alias ranger="~/bin/ranger.sh"
-alias termite="~/bin/termite.sh"
 alias vimrc="vim ~/.vimrc"
 alias shconfig="vim .bashrc"
 alias i3config="vim ~/.config/wpg/templates/i3.base"
@@ -60,13 +64,12 @@ ZSH_THEME=powerlevel10k/powerlevel10k
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time vi_mode root_indicator)
 POWERLEVEL9K_MODE="nerdfont-complete"
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
-POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=$'\uE0BC'
-POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=$'\uE0BA'
+# POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=$'\uE0BC'
+# POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=$'\uE0BA'
 
 ###############################################################
 # => General
 ###############################################################
-
 ZLE_RPROMPT_INDENT=0
 autoload -U compinit
 compinit -i
@@ -108,6 +111,37 @@ COMPLETION_WAITING_DOTS="true"
 # Date Format
 HIST_STAMPS="dd/mm/yyyy"
 
+###############################################################
+# => fzf colorscheme
+###############################################################
+_gen_fzf_default_opts() {
+
+local color00='#292D3E'
+local color01='#444267'
+local color02='#32374D'
+local color03='#676E95'
+local color04='#8796B0'
+local color05='#959DCB'
+local color06='#959DCB'
+local color07='#FFFFFF'
+local color08='#F07178'
+local color09='#F78C6C'
+local color0A='#FFCB6B'
+local color0B='#C3E88D'
+local color0C='#89DDFF'
+local color0D='#82AAFF'
+local color0E='#C792EA'
+local color0F='#FF5370'
+
+export FZF_DEFAULT_OPTS="
+  --color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color0D
+  --color=fg:$color04,header:$color0D,info:$color0A,pointer:$color0C
+  --color=marker:$color0C,fg+:$color06,prompt:$color0A,hl+:$color0D
+"
+
+}
+
+_gen_fzf_default_opts
 
 ###############################################################
 # => functions
@@ -155,3 +189,6 @@ fd() {
                   -o -type d -print 2> /dev/null | fzf +m) &&
   cd "$dir"
 }
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
