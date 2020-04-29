@@ -1,21 +1,31 @@
-[colors]
-background = ${xrdb:color8:#4C566A}
-foreground = ${xrdb:color15:#ECEFF4}
-active = #6c99a6
-inactive = #4a6972
-highlight = ${xrdb:color2:#A3BE8C}
-error = ${xrdb:color9:#BF616A}
+[base16]
+base00 = ${xrdb:color0}
+base01 = ${xrdb:color1}
+base02 = ${xrdb:color2}
+base03 = ${xrdb:color3}
+base04 = ${xrdb:color4}
+base05 = ${xrdb:color5}
+base06 = ${xrdb:color6}
+base07 = ${xrdb:color7}
+base08 = ${xrdb:color8}
+base09 = ${xrdb:color9}
+base0A = ${xrdb:colorA}
+base0B = ${xrdb:colorB}
+base0C = ${xrdb:colorC}
+base0D = ${xrdb:colorD}
+base0E = ${xrdb:colorE}
+base0F = ${xrdb:colorF}
 
 [bar/wpgtk1]
 monitor = eDP-1-1
 width = 100%
-height = 20
+height = 25
 offset-y = 0%
 radius = 0.0
 fixed-center = true
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+background = ${xrdb:background}
+foreground = ${xrdb:foreground}
 
 line-size = 0
 label-line-color = #f00
@@ -34,22 +44,22 @@ font-1 = FontAwesome:style=Regular:size=8;1
 
 modules-left = i3 xwindow 
 modules-center = date
-modules-right =  filesystem backlight pulseaudio wlan eth battery
+modules-right =  filesystem pulseaudio battery
 
 tray-position = right
 tray-padding = 10
-tray-background = ${colors.inactive}
+tray-background = ${xrdb:inactive}
 
 [bar/wpgtk2]
 monitor = DP-1-1
 width = 100%
-height = 20
+height = 25
 offset-y = 0%
 radius = 0.0
 fixed-center = true
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+background = ${xrdb:background}
+foreground = ${xrdb:foreground}
 
 line-size = 0
 label-line-color = #f00
@@ -68,22 +78,22 @@ font-1 = FontAwesome:style=Regular:size=8;1
 
 modules-left = i3 xwindow 
 modules-center = date
-modules-right =  filesystem backlight pulseaudio wlan eth battery
+modules-right =  filesystem pulseaudio battery
 
 tray-position = right
 tray-padding = 10
-tray-background = ${colors.inactive}
+tray-background = ${xrdb:inactive}
 
 [bar/wpgtk3]
 monitor = DP-1-2-2
 width = 100%
-height = 20
+height = 25
 offset-y = 0%
 radius = 0.0
 fixed-center = true
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+background = ${xrdb:background}
+foreground = ${xrdb:foreground}
 
 line-size = 0
 label-line-color = #f00
@@ -102,16 +112,16 @@ font-1 = FontAwesome:style=Regular:size=8;1
 
 modules-left = i3 xwindow 
 modules-center = date
-modules-right =  filesystem backlight pulseaudio wlan eth battery
+modules-right =  filesystem pulseaudio battery
 
 tray-position = right
 tray-padding = 10
-tray-background = ${colors.inactive}
+tray-background = ${xrdb:inactive}
 
 
 [module/xwindow]
 type = internal/xwindow
-format-background = ${colors.active}
+format-background = ${xrdb:active}
 format-padding = 1
 label = %title%
 label-maxlen = 50
@@ -119,8 +129,8 @@ label-maxlen = 50
 [module/title]
 type = internal/xwindow
 format = <label>
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
+format-foreground = ${xrdb:foreground}
+format-background = ${xrdb:background}
 format-padding = 4
 label = %title%
 label-maxlen= 50
@@ -129,18 +139,18 @@ label-maxlen= 50
 type = internal/bspwm
 
 label-focused = %index%
-label-focused-background = ${colors.active}
+label-focused-background = ${xrdb:active}
 label-focused-padding = 1
 
 label-occupied = %index%
 label-occupied-padding = 1
 
 label-urgent = %index%!
-label-urgent-background = ${colors.active}
+label-urgent-background = ${xrdb:active}
 label-urgent-padding = 1
 
 label-empty = %index%
-label-empty-foreground = ${colors.foreground}
+label-empty-foreground = ${xrdb:foreground}
 label-empty-padding = 1
 
 [module/i3]
@@ -153,60 +163,33 @@ fuzzy-matching = true
 ; Only show workspaces on the same output as the bar
 pin-workspaces = true
 
-ws-icon-0 = " 1;  "
-ws-icon-1 = 2;
-ws-icon-2 = 9;
-ws-icon-3 = 10;
+ws-icon-1 = 1;
+ws-icon-2 = 2;
+ws-icon-3 = 3;
+ws-icon-4 = 4;
+ws-icon-5 = 5;
+ws-icon-6 = 6;
+ws-icon-7 = 7;
+ws-icon-8 = 8;
+ws-icon-9 = 9;
+ws-icon-0 = 10;
 ws-icon-default =
 
 label-mode-padding = 1
-label-mode-foreground = ${colors.foreground}
-label-mode-background = ${colors.highlight}
+label-mode-foreground = ${xrdb:foreground}
+label-mode-background = ${xrdb:highlight}
 
-label-focused-background = ${colors.active}
+label-focused-background = ${xrdb:active}
 label-focused-padding = 1
 
 label-unfocused-padding = 1
-label-unfocused-background = ${colors.inactive}
+label-unfocused-background = ${xrdb:inactive}
 
-label-visible-background = ${colors.highlight}
+label-visible-background = ${xrdb:highlight}
 label-visible-padding = 1
 
-label-urgent-background = ${colors.highlight}
+label-urgent-background = ${xrdb:highlight}
 label-urgent-padding = 1
-
-[module/pacman-updates]
-type = custom/script
-exec = checkupdates | wc -l
-interval = 1000
-label = %output%
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-format-prefix="  "
-
-
-[module/vpn]
-type = custom/script
-exec = nordvpn status | grep Status | sed 's/Status: //g'
-interval = 10
-kabel =%output%
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
-
-icon-play = ⏵
-icon-pause = ⏸
-icon-stop = ⏹
-icon-prev = ⏮
-icon-next = ⏭
-
-label-song-maxlen = 25
-label-song-ellipsis = true
-format-playing-padding = 2
-format-playing-background = ${colors.highlight}
 
 [module/wlan]
 type = internal/network
@@ -216,12 +199,12 @@ interval = 3.0
 format-connected-padding = 1
 format-connected = <ramp-signal> <label-connected>
 label-connected = %essid%
-format-connected-background = ${colors.active}
+format-connected-background = ${xrdb:active}
 
 format-disconnected =
 
 ramp-signal-0 = 
-ramp-signal-foreground = ${colors.foreground}
+ramp-signal-foreground = ${xrdb:foreground}
 
 [module/eth]
 type = internal/network
@@ -230,7 +213,7 @@ interval = 3.0
 
 format-connected =  <label-connected>
 format-connected-padding = 1
-format-connected-background = ${colors.active}
+format-connected-background = ${xrdb:active}
 label-connected = %ifname% 
 
 [module/filesystem]
@@ -241,8 +224,8 @@ fixed-values = true
 format-mounted = <label-mounted>
 label-mounted = %mountpoint%: %free%
 label-mounted-padding = 1
-label-mounted-background = ${colors.active}
-label-mounted-foreground = ${colors.foreground}
+label-mounted-background = ${xrdb:active}
+label-mounted-foreground = ${xrdb:foreground}
 
 [module/date]
 type = internal/date
@@ -252,7 +235,7 @@ date = "%A %d %b %Y, "
 time = %R:%S
 
 format-padding= 1
-format-background = ${colors.background}
+format-background = ${xrdb:background}
 
 label = %date%%time%
 
@@ -276,7 +259,7 @@ card = intel_backlight
 ;   <bar>
 format =  <label>
 format-padding = 1
-format-background = ${colors.active}
+format-background = ${xrdb:active}
 ; Available tokens:
 ;   %percentage% (default)
 label = %percentage%%
@@ -299,16 +282,16 @@ type = internal/alsa
 
 format-volume = <ramp-volume> <label-volume>
 format-volume-padding = 1
-format-volume-background = ${colors.active}
+format-volume-background = ${xrdb:active}
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 ramp-volume-3 = 
-ramp-volume-foreground = ${colors.foreground}
+ramp-volume-foreground = ${xrdb:foreground}
 
 format-muted-prefix = " "
-format-muted-foreground = ${colors.background}
-format-muted-background = ${colors.error}
+format-muted-foreground = ${xrdb:background}
+format-muted-background = ${xrdb:error}
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -331,13 +314,13 @@ ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 ramp-volume-3 = 
-ramp-volume-foreground = ${colors.foreground}
+ramp-volume-foreground = ${xrdb:foreground}
 
 format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground}
-format-muted-background = ${colors.error}
-format-volume-foreground = ${colors.foreground}
-format-volume-background = ${colors.active}
+format-muted-foreground = ${xrdb:foreground}
+format-muted-background = ${xrdb:error}
+format-volume-foreground = ${xrdb:foreground}
+format-volume-background = ${xrdb:active}
 
 [module/battery]
 type = internal/battery
@@ -351,24 +334,24 @@ format-discharging-padding = 1
 format-discharging = <ramp-capacity> <label-discharging>
 format-full = <label-full> <ramp-capacity>
 format-full-padding = 1
-format-full-background = ${colors.active}
+format-full-background = ${xrdb:active}
 
 ramp-capacity-0 = 
 ramp-capacity-1 =  
 ramp-capacity-2 =  
 ramp-capacity-3 = 
 ramp-capacity-4 =  
-ramp-capacity-foreground = ${colors.foreground}
+ramp-capacity-foreground = ${xrdb:foreground}
 
-animation-charging-foreground = ${colors.foreground}
+animation-charging-foreground = ${xrdb:foreground}
 animation-charging-framerate = 500
 animation-charging-0 = 
 animation-charging-1 =  
 animation-charging-2 =  
 animation-charging-3 = 
 animation-charging-4 =  
-format-charging-background = ${colors.highlight}
-format-discharging-background = ${colors.active}
+format-charging-background = ${xrdb:highlight}
+format-discharging-background = ${xrdb:active}
 
 [settings]
 screenchange-reload = true

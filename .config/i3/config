@@ -11,11 +11,11 @@ font xft:Hack Nerd Font Mono 10
 #######################################
 
 ######### STARTUP PROGRAMS   ##########
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id compton
-exec --no-startup-id signal-desktop --use-tray-icon
-exec --no-startup-id telegram-desktop
-exec --no-startup-id whatsapp-nativefier
+#exec --no-startup-id signal-desktop --use-tray-icon
+#exec --no-startup-id telegram-desktop
+#exec --no-startup-id whatsapp-nativefier
 exec --no-startup-id keepassxc
 exec_always --no-startup-id xinput --set-prop 23 'libinput Accel Profile Enabled' 0, 1
 exec_always --no-startup-id xinput set-prop 30 359 -0.75
@@ -23,16 +23,13 @@ exec_always --no-startup-id xautolock -time 15 -locker 'betterlockscreen -l' -no
 exec --no-startup-id pasystray
 exec --no-startup-id i3-battery-popup -n
 exec_always --no-startup-id dunst
-exec_always --no-startup-id ~/.config/wpg/wp_init.sh
 exec --no-startup-id thunderbird
-exec --no-startup-id blueman-applet
 exec --no-startup-id redshift
 exec --no-startup-id seafile-applet
 exec --no-startup-id nm-applet
-exec_always --no-startup-id ~/Repos/i3-alternating-layout/alternating_layouts.py
 exec --no-startup-id termite -t calc -e "python -q"
 exec --no-startup-id termite -t dropdown
-exec --no-startup-id protonmail-bridge --no-window
+exec --no-startup-id protonmail-bridge --cli
 exec_always --no-startup-id xset r rate 200 30
 exec_always --no-startup-id setxkbmap -option "caps:swapescape"
 #######################################
@@ -56,11 +53,8 @@ bindsym Print exec scrot -q 100 -e 'mv $f ~/Pictures/Screenshots' && dunstify -i
 bindsym --release $mod+Print exec scrot -s -q 100 -e 'mv $f ~/Pictures/Screenshots' && dunstify -i "gnome-panel-screenshot" "Screenshot taken."
 
 # Toggle xautolock
-# bindsym $mod+period xautolock -enable && dunstify "Autolock turned off."
-# bindsym $mod+Shift+period xautolock -disable && dunstify "Autolock turned on."
-
-# wpg rofi key binding
-bindsym $mod+t exec --no-startup-id ~/bin/setWallpaper.sh
+bindsym $mod+period exec xautolock -enable && dunstify "Autolock turned off."
+bindsym $mod+Shift+period exec xautolock -disable && dunstify "Autolock turned on."
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -174,16 +168,16 @@ bindsym $mod+o resize grow width 5 px or 5 ppt
 #######################################
 
 ######### WORKSPACE SETTINGS ##########
-set $ws1 " 1  "
-set $ws2 " 2  "
-set $ws3 "3 "
-set $ws4 "4 ﱮ"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
-set $ws7 "7 "
-set $ws8 "8 "
-set $ws9 "9 "
-set $ws10 "10 "
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -222,9 +216,9 @@ assign [class="Seafile"] $ws9
 assign [class="Thunderbird"] $ws3
 assign [class="Signal"] $ws8
 assign [class="Telegram"] $ws8
-assign [class="keepassxc"] $ws7
 assign [class="Org.gnome.Nautilus"] $ws4
 for_window [class="Spotify"] move to workspace $ws10
+for_window [class="KeePassXC"] move to workspace $ws7
 for_window [title="^calc$"] move scratchpad
 for_window [title="^calc$"] sticky enable
 for_window [title="^calc$"] resize set 500 300
@@ -233,8 +227,6 @@ for_window [title="dropdown"] sticky enable
 #######################################
 
 ######### COLOR SETTINGS     ##########
-
-
 set $base00 #282936
 set $base01 #3a3c4e
 set $base02 #4d4f68
@@ -251,26 +243,6 @@ set $base0C #a1efe4
 set $base0D #62d6e8
 set $base0E #b45bcf
 set $base0F #00f769
-
-# Basic bar configuration using the Base16 variables.
-bar {
-    status_command i3status
-
-	position top
-
-    colors {
-        background $base00
-        separator  $base01
-        statusline $base04
-
-        # State             Border  BG      Text
-        focused_workspace   $base05 $base0D $base00
-        active_workspace    $base05 $base03 $base00
-        inactive_workspace  $base03 $base01 $base05
-        urgent_workspace    $base08 $base08 $base00
-        binding_mode        $base00 $base0A $base00
-    }
-}
 
 # Basic color configuration using the Base16 variables for windows and borders.
 # Property Name         Border  BG      Text    Indicator Child Border

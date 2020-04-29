@@ -23,7 +23,7 @@ exec_always --no-startup-id xautolock -time 15 -locker 'betterlockscreen -l' -no
 exec --no-startup-id pasystray
 exec --no-startup-id i3-battery-popup -n
 exec_always --no-startup-id dunst
-exec_always --no-startup-id ~/.config/wpg/wp_init.sh
+#exec_always --no-startup-id ~/.config/wpg/wp_init.sh
 exec --no-startup-id thunderbird
 exec --no-startup-id blueman-applet
 exec --no-startup-id redshift

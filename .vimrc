@@ -13,7 +13,8 @@
 " | 3. Style              |
 " | 4. Plugins            |
 " | 5. Plugin Settings    |
-" | 6. Recommended by Coc |
+" | 6. Functions          |
+" | 7. Recommended by Coc |
 " +-----------------------+
 
 " ################################################################################################
@@ -35,7 +36,7 @@ set encoding=utf8 " set encoding to utf8
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
-set noexpandtab
+set expandtab
 
 " Turn backup off
 set nobackup
@@ -112,6 +113,7 @@ colorscheme base16-dracula
 
 call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
 Plug 'jremmen/vim-ripgrep'
 Plug 'daviesjamie/vim-base16-lightline'
 Plug 'junegunn/fzf.vim'
@@ -152,6 +154,52 @@ let g:lightline = {
 	\   'cocstatus': 'coc#status'
 	\ },
 \ }
+
+set showtabline
+let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
+
+autocmd BufWritePost,TextChanged,TextChangedI * call lightline#update()
+
+" ################################################################################################
+" # Functions
+" ################################################################################################
+
+" deleter buffers with fzf
+function! s:list_buffers()
+  redir => list
+  silent ls
+  redir END
+  return split(list, "\n")
+endfunction
+
+function! s:delete_buffers(lines)
+  execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
+endfunction
+
+command! BD call fzf#run(fzf#wrap({
+  \ 'source': s:list_buffers(),
+  \ 'sink*': { lines -> s:delete_buffers(lines) },
+  \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
+\ }))
+
+function! VisualSelection(direction, extra_filter) range
+    let l:saved_reg = @"
+    execute "normal! vgvy"
+
+    let l:pattern = escape(@", "\\/.*'$^~[]")
+    let l:pattern = substitute(l:pattern, "\n$", "", "")
+
+    if a:direction == 'gv'
+        call CmdLine("Ack '" . l:pattern . "' " )
+    elseif a:direction == 'replace'
+        call CmdLine("%s" . '/'. l:pattern . '/')
+    endif
+
+    let @/ = l:pattern
+    let @" = l:saved_reg
+endfunction
 
 " ################################################################################################
 " # THE FOLLOWING IS RECOMMENDED BY COC

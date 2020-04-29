@@ -43,7 +43,7 @@ alias pm="sudo pacman -S"
 alias ls="exa -l --group-directories-first"
 alias ll="exa -al --group-directories-first"
 alias removeorphans="sudo pacman -Rns $(pacman -Qtdq)"
-alias polybarconfig="vim ~/.config/wpg/templates/polybar.base"
+alias polybarconfig="vim ~/.config/polybar/config"
 alias hirnlogin="~/bin/hirnlogin.sh"
 alias vim="nvim"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
@@ -51,7 +51,7 @@ alias zshrc="vim ~/.zshrc"
 alias rangerconfig="vim ~/.config/ranger/rc.conf"
 alias vimrc="vim ~/.vimrc"
 alias shconfig="vim .bashrc"
-alias i3config="vim ~/.config/wpg/templates/i3.base"
+alias i3config="vim ~/.config/i3/config"
 alias termiteconfig="vim ~/.config/wpg/templates/config_termite_config.base"
 
 ###############################################################
