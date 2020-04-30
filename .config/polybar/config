@@ -1,3 +1,9 @@
+#   __           ___     __   __ 
+#  / /____  ___ <  /__ _/ /  / /_
+# / __/ _ \/ _ \/ / _ `/ _ \/ __/
+# \__/\___/_//_/_/\_, /_//_/\__/ 
+#                /___/           
+# https://github.com/ton1ght
 [base16]
 base00 = ${xrdb:color0}
 base01 = ${xrdb:color1}
@@ -16,8 +22,8 @@ base0D = ${xrdb:colorD}
 base0E = ${xrdb:colorE}
 base0F = ${xrdb:colorF}
 
-[bar/wpgtk1]
-monitor = eDP-1-1
+[bar/example]
+monitor = ${env:MONITOR:}
 width = 100%
 height = 25
 offset-y = 0%
@@ -49,75 +55,6 @@ modules-right =  filesystem pulseaudio battery
 tray-position = right
 tray-padding = 10
 tray-background = ${xrdb:inactive}
-
-[bar/wpgtk2]
-monitor = DP-1-1
-width = 100%
-height = 25
-offset-y = 0%
-radius = 0.0
-fixed-center = true
-
-background = ${xrdb:background}
-foreground = ${xrdb:foreground}
-
-line-size = 0
-label-line-color = #f00
-
-border-size = 0
-border-color = #00000000
-
-padding-left = 0
-padding-right = 0
-
-module-margin-left = 0
-module-margin-right = 0
-
-font-0 = Hack Nerd Font:size=10;1
-font-1 = FontAwesome:style=Regular:size=8;1
-
-modules-left = i3 xwindow 
-modules-center = date
-modules-right =  filesystem pulseaudio battery
-
-tray-position = right
-tray-padding = 10
-tray-background = ${xrdb:inactive}
-
-[bar/wpgtk3]
-monitor = DP-1-2-2
-width = 100%
-height = 25
-offset-y = 0%
-radius = 0.0
-fixed-center = true
-
-background = ${xrdb:background}
-foreground = ${xrdb:foreground}
-
-line-size = 0
-label-line-color = #f00
-
-border-size = 0
-border-color = #00000000
-
-padding-left = 0
-padding-right = 0
-
-module-margin-left = 0
-module-margin-right = 0
-
-font-0 = Hack Nerd Font:size=10;1
-font-1 = FontAwesome:style=Regular:size=8;1
-
-modules-left = i3 xwindow 
-modules-center = date
-modules-right =  filesystem pulseaudio battery
-
-tray-position = right
-tray-padding = 10
-tray-background = ${xrdb:inactive}
-
 
 [module/xwindow]
 type = internal/xwindow
@@ -134,24 +71,6 @@ format-background = ${xrdb:background}
 format-padding = 4
 label = %title%
 label-maxlen= 50
-
-[module/bspwm]
-type = internal/bspwm
-
-label-focused = %index%
-label-focused-background = ${xrdb:active}
-label-focused-padding = 1
-
-label-occupied = %index%
-label-occupied-padding = 1
-
-label-urgent = %index%!
-label-urgent-background = ${xrdb:active}
-label-urgent-padding = 1
-
-label-empty = %index%
-label-empty-foreground = ${xrdb:foreground}
-label-empty-padding = 1
 
 [module/i3]
 type = internal/i3

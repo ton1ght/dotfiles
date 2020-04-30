@@ -13,6 +13,7 @@ font xft:Hack Nerd Font Mono 10
 ######### STARTUP PROGRAMS   ##########
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id compton
+exec_always --no-startup-id xrandr --output DP1 --mode 1920x1200 --pos 1920x0 --rotate normal --output DP2 --primary --mode 1920x1200 --pos 0x0 --rotate normal --output DP3 --off --output HDMI1 --off --output HDMI2 --off --output HDMI3 --off --output VIRTUAL1 --off
 #exec --no-startup-id signal-desktop --use-tray-icon
 #exec --no-startup-id telegram-desktop
 #exec --no-startup-id whatsapp-nativefier
@@ -178,6 +179,17 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+
+workspace $ws1 output DP2
+workspace $ws2 output DP2
+workspace $ws3 output DP2
+workspace $ws4 output DP2
+workspace $ws5 output DP2
+workspace $ws6 output DP1 
+workspace $ws7 output DP1
+workspace $ws8 output DP1
+workspace $ws9 output DP1
+workspace $ws0 output DP1
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
