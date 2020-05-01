@@ -1,7 +1,3 @@
-[colors]
-	background = "#4C566A"
-	foreground = "#ECEFF4"
-
 [global]
     ### Display ###
 
@@ -18,8 +14,6 @@
     horizontal_padding = 12
     frame_width = 3
 
-    frame_color = "#6c99a6"
-    separator_color = auto
     sort = yes
     idle_threshold = 120
 
@@ -76,17 +70,35 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    background = colors.background
-    foreground = colors.foreground
+    background = base16_low.background
+    foreground = base16_low.foreground
     timeout = 10
 
 [urgency_normal]
-    background = colors.background
-    foreground = colors.foreground
+    background = base16_normal.background
+    foreground = base16_normal.foreground
     timeout = 10
 
 [urgency_critical]
-    background = colors.background
-    foreground = colors.foreground
+    background = base16_critical.background
+    foreground = base16_critical.foreground
     frame_color = "#BF616A"
     timeout = 0
+
+frame_color = "#e9e9f4"
+separator_color = "#e9e9f4"
+
+[base16_low]
+    msg_urgency = low
+    background = "#3a3c4e"
+    foreground = "#4d4f68"
+
+[base16_normal]
+    msg_urgency = normal
+    background = "#626483"
+    foreground = "#e9e9f4"
+
+[base16_critical]
+    msg_urgency = critical
+    background = "#ea51b2"
+    foreground = "#f1f2f8"
