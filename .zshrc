@@ -12,7 +12,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 # => exports
 ###############################################################
 
-export TERM="xterm-256color"
+export TERM="alacritty"
 export SUDO_EDITOR="/usr/bin/nvim"
 export LANG=en_US.UTF-8
 export VISUAL=nvim
@@ -42,6 +42,7 @@ alias packages="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --b
 alias pm="sudo pacman -S"
 alias ls="exa -l --group-directories-first"
 alias ll="exa -al --group-directories-first"
+alias ranger="ranger && base16_dracula"
 alias removeorphans="sudo pacman -Rns $(pacman -Qtdq)"
 alias polybarconfig="vim ~/.config/polybar/config"
 alias hirnlogin="~/bin/hirnlogin.sh"
@@ -52,7 +53,7 @@ alias rangerconfig="vim ~/.config/ranger/rc.conf"
 alias vimrc="vim ~/.vimrc"
 alias shconfig="vim .bashrc"
 alias i3config="vim ~/.config/i3/config"
-alias termiteconfig="vim ~/.config/wpg/templates/config_termite_config.base"
+alias termiteconfig="vim ~/.config/termite/config"
 
 ###############################################################
 # => Powerlevel10k

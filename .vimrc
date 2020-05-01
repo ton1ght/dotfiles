@@ -103,9 +103,10 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 " # STYLE
 " ################################################################################################
 
-set background=dark
-let base16colorspace=256
-colorscheme base16-dracula
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 " ################################################################################################
 " # PLUGINS
@@ -138,6 +139,10 @@ call plug#end()
 " # PLUGIN SETTINGS
 " ################################################################################################
 
+hi Normal ctermbg=none
+hi NonText ctermbg=none
+
+
 " goyo settings
 let g:goyo_width = "60%+20%"
 let g:goyo_height = "80%"
@@ -159,6 +164,9 @@ set showtabline
 let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
+" let g:lightline#bufferline#shorten_path = 0
+let g:lightline#bufferline#filename_modifier = ':t'
+set showtabline=2
 
 autocmd BufWritePost,TextChanged,TextChangedI * call lightline#update()
 
@@ -253,7 +261,7 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gc <Plug>(coc-declaration)
+" nmap <silent> gc <Plug>(coc-declaration)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
@@ -341,3 +349,4 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR> 
+
