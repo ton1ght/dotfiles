@@ -47,8 +47,8 @@ border-left-size = 5
 padding-left = 0
 padding-right = 0
 
-module-margin-left = 0
-module-margin-right = 0
+module-margin-left = 1
+module-margin-right = 1
 
 font-0 = Hack Nerd Font:size=10;1
 font-1 = FontAwesome:style=Regular:size=8;1
@@ -58,7 +58,7 @@ modules-center = date
 modules-right =  filesystem pulseaudio battery
 
 tray-position = right
-tray-padding = 1
+tray-padding = 10
 tray-background = ${xrdb:background}
 
 [module/xwindow]
@@ -154,12 +154,11 @@ type = internal/fs
 mount-0 = /home
 interval = 10
 fixed-values = true
-format-mounted = <label-mounted>
-label-mounted = %mountpoint%: %free%
+format-mounted = <label-mounted>
+label-mounted = %free%
 label-mounted-padding = 1
 label-mounted-background = ${xrdb:background}
 label-mounted-foreground = ${xrdb:foreground}
-label-mounted-underline = ${xrdb:active}
 
 [module/date]
 type = internal/date
@@ -268,7 +267,7 @@ format-discharging-padding = 1
 format-discharging = <ramp-capacity> <label-discharging>
 format-full = <label-full> <ramp-capacity>
 format-full-padding = 1
-format-full-background = ${xrdb:active}
+format-full-background = ${xrdb:background}
 
 ramp-capacity-0 = 
 ramp-capacity-1 =  
@@ -285,7 +284,7 @@ animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 =  
 format-charging-background = ${xrdb:highlight}
-format-discharging-background = ${xrdb:active}
+format-discharging-background = ${xrdb:background}
 
 [settings]
 screenchange-reload = true

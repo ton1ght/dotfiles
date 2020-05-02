@@ -1,3 +1,10 @@
+#   __           ___     __   __ 
+#  / /____  ___ <  /__ _/ /  / /_
+# / __/ _ \/ _ \/ / _ `/ _ \/ __/
+# \__/\___/_//_/_/\_, /_//_/\__/ 
+#                /___/           
+# https://github.com/ton1ght
+
 rofi.modi:                           window,run,ssh,windowcd
 rofi.width:                          50
 rofi.lines:                          15
