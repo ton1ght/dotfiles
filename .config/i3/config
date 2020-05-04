@@ -12,25 +12,18 @@ font xft:Hack Nerd Font Mono 10
 
 ######### STARTUP PROGRAMS   ##########
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id compton
-exec_always --no-startup-id xrandr --output DP1 --mode 1920x1200 --pos 1920x0 --rotate normal --output DP2 --primary --mode 1920x1200 --pos 0x0 --rotate normal --output DP3 --off --output HDMI1 --off --output HDMI2 --off --output HDMI3 --off --output VIRTUAL1 --off
-exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/mountain.jpg 
-#exec --no-startup-id signal-desktop --use-tray-icon
-#exec --no-startup-id telegram-desktop
-#exec --no-startup-id whatsapp-nativefier
+exec_always --no-startup-id picom
+exec_always --no-startup-id feh --bg-scale ~/pic/wallpaper/mountains.jpg
 exec --no-startup-id keepassxc
 exec_always --no-startup-id xinput --set-prop 23 'libinput Accel Profile Enabled' 0, 1
 exec_always --no-startup-id xinput set-prop 30 359 -0.75
 exec_always --no-startup-id xautolock -time 15 -locker 'betterlockscreen -l' -notifier "dunstify 'Locking screen in 30 seconds.'" -notify 30
 exec --no-startup-id pasystray
-exec --no-startup-id i3-battery-popup -n
 exec_always --no-startup-id dunst
 exec --no-startup-id thunderbird
 exec --no-startup-id redshift
 exec --no-startup-id seafile-applet
 exec --no-startup-id nm-applet
-exec --no-startup-id termite -t calc -e "python -q"
-exec --no-startup-id termite -t dropdown
 exec --no-startup-id protonmail-bridge --cli
 exec_always --no-startup-id xset r rate 200 30
 exec_always --no-startup-id setxkbmap -option "caps:swapescape"
@@ -42,7 +35,7 @@ set $gouter 1
 for_window [class="^.*"] border pixel 2
 gaps inner 5
 gaps outer 1
-smart_borders on
+#smart_borders on
 #hide_edge_borders both
 # smart_gaps on
 bindsym $mod+g		    gaps inner current set $ginner; gaps outer current set $gouter;
@@ -50,6 +43,12 @@ bindsym $mod+Shift+g	gaps inner current set 0; gaps outer current set 0;
 #######################################
 
 ######### KEYBINDINGS        ##########
+
+bindsym $mod+r exec ~/bin/launch_ranger.sh
+
+# key binding for editing configuration files
+bindsym --release $mod+plus exec ~/bin/rofi_edit_configs.sh
+
 # key binding for screenshots
 bindsym Print exec scrot -q 100 -e 'mv $f ~/Pictures/Screenshots' && dunstify -i "gnome-panel-screenshot" "Screenshot taken."
 bindsym --release $mod+Print exec scrot -s -q 100 -e 'mv $f ~/Pictures/Screenshots' && dunstify -i "gnome-panel-screenshot" "Screenshot taken."

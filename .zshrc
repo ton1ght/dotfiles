@@ -1,13 +1,3 @@
-# get colors from wpg
-# (cat $HOME/.config/wpg/sequences &)
-# cat ~/.config/wpg/sequences
-
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
-
 ###############################################################
 # => exports
 ###############################################################
@@ -74,7 +64,6 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 ZLE_RPROMPT_INDENT=0
 autoload -U compinit
 compinit -i
-autoload colors
 setopt COMPLETE_IN_WORD
 setopt ALWAYS_TO_END
 setopt MENU_COMPLETE
@@ -111,38 +100,6 @@ COMPLETION_WAITING_DOTS="true"
 
 # Date Format
 HIST_STAMPS="dd/mm/yyyy"
-
-###############################################################
-# => fzf colorscheme
-###############################################################
-_gen_fzf_default_opts() {
-
-local color00='#292D3E'
-local color01='#444267'
-local color02='#32374D'
-local color03='#676E95'
-local color04='#8796B0'
-local color05='#959DCB'
-local color06='#959DCB'
-local color07='#FFFFFF'
-local color08='#F07178'
-local color09='#F78C6C'
-local color0A='#FFCB6B'
-local color0B='#C3E88D'
-local color0C='#89DDFF'
-local color0D='#82AAFF'
-local color0E='#C792EA'
-local color0F='#FF5370'
-
-export FZF_DEFAULT_OPTS="
-  --color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color0D
-  --color=fg:$color04,header:$color0D,info:$color0A,pointer:$color0C
-  --color=marker:$color0C,fg+:$color06,prompt:$color0A,hl+:$color0D
-"
-
-}
-
-_gen_fzf_default_opts
 
 ###############################################################
 # => functions

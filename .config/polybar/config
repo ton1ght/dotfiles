@@ -47,8 +47,8 @@ border-left-size = 5
 padding-left = 0
 padding-right = 0
 
-module-margin-left = 1
-module-margin-right = 1
+module-margin-left = 0
+module-margin-right = 0
 
 font-0 = Hack Nerd Font:size=10;1
 font-1 = FontAwesome:style=Regular:size=8;1
@@ -269,20 +269,20 @@ format-full = <label-full> <ramp-capacity>
 format-full-padding = 1
 format-full-background = ${xrdb:background}
 
-ramp-capacity-0 = 
-ramp-capacity-1 =  
-ramp-capacity-2 =  
-ramp-capacity-3 = 
-ramp-capacity-4 =  
+ramp-capacity-0 = " "
+ramp-capacity-1 = " " 
+ramp-capacity-2 = " " 
+ramp-capacity-3 = " "
+ramp-capacity-4 = " " 
 ramp-capacity-foreground = ${xrdb:foreground}
 
 animation-charging-foreground = ${xrdb:foreground}
 animation-charging-framerate = 500
-animation-charging-0 = 
-animation-charging-1 =  
-animation-charging-2 =  
-animation-charging-3 = 
-animation-charging-4 =  
+animation-charging-0 = " "
+animation-charging-1 = " " 
+animation-charging-2 = " " 
+animation-charging-3 = " "
+animation-charging-4 = " " 
 format-charging-background = ${xrdb:highlight}
 format-discharging-background = ${xrdb:background}
 
