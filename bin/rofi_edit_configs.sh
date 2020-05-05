@@ -37,6 +37,9 @@ case "$choice" in
 	i3)
 		choice="$HOME/.config/i3/config"
 	;;
+	ranger)
+		choice="$HOME/.config/ranger/rc.conf"
+	;;
 	vim)
 		choice="$HOME/.config/nvim/.vimrc"
 	;;

@@ -21,6 +21,7 @@ exec_always --no-startup-id xautolock -time 15 -locker 'betterlockscreen -l' -no
 exec --no-startup-id pasystray
 exec_always --no-startup-id dunst
 exec --no-startup-id thunderbird
+exec --no-startup-id alacritty -t "calc" -e python
 exec --no-startup-id redshift
 exec --no-startup-id seafile-applet
 exec --no-startup-id nm-applet
@@ -35,7 +36,7 @@ set $gouter 1
 for_window [class="^.*"] border pixel 2
 gaps inner 5
 gaps outer 1
-#smart_borders on
+smart_borders on
 #hide_edge_borders both
 # smart_gaps on
 bindsym $mod+g		    gaps inner current set $ginner; gaps outer current set $gouter;

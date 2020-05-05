@@ -2,11 +2,11 @@
 # => exports
 ###############################################################
 
-export TERM="alacritty"
+export TERM="xterm-256color"
 export SUDO_EDITOR="/usr/bin/nvim"
 export LANG=en_US.UTF-8
-export VISUAL=nvim
-export EDITOR=nvim
+export VISUAL="nvim"
+export EDITOR="nvim"
 
 ###############################################################
 # => zplug
@@ -104,6 +104,10 @@ HIST_STAMPS="dd/mm/yyyy"
 ###############################################################
 # => functions
 ###############################################################
+
+autoload -z edit-command-line 
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select {

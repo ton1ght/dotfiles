@@ -86,3 +86,5 @@ colors:
 
 window:
     decorations: none
+
+dynamic_title: true
