@@ -39,10 +39,10 @@ label-line-color = #f00
 border-size = 4
 border-color = #00000000
 
-border-top-size = 5
+border-top-size = 0
 border-bottom-size = 0
-border-right-size = 5
-border-left-size = 5
+border-right-size = 0
+border-left-size = 0
 
 padding-left = 0
 padding-right = 0
@@ -50,15 +50,15 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = Arimo Nerd Font:size=10;1
+font-0 = Arimo Nerd Font:size=11;1
 font-1 = FontAwesome:style=Regular:size=8;1
 
 modules-left = i3 xwindow 
 modules-center = date
-modules-right =  filesystem pulseaudio battery
+modules-right =  spotify updates-arch-combined filesystem pulseaudio battery
 
 tray-position = right
-tray-padding = 5
+tray-padding = 1
 tray-background = ${xrdb:background}
 
 [module/xwindow]
@@ -66,7 +66,7 @@ type = internal/xwindow
 format = <label>
 format-background = ${xrdb:background}
 format-foreground = ${xrdb:foreground}
-format-padding = 4
+format-padding = 2
 label = %title%
 label-maxlen = 100
 label-empty-foreground = #707880
@@ -175,10 +175,10 @@ label = %date%%time%
 [module/spotify]
 type = custom/script
 interval = 1
-format-prefix = " "
+format-prefix = "ﱘ "
+format-padding = 1
 format = <label>
-exec = python ~/bin/spotify_script.py
-format-underline = #1db954
+exec = python ~/bin/spotify_status.py -t 64 -f '{artist}: {song}'
 
 [module/backlight]
 type = internal/backlight
@@ -289,8 +289,14 @@ format-discharging-background = ${xrdb:background}
 [settings]
 screenchange-reload = true
 
+[module/updates-arch-combined]
+type = custom/script
+exec = ~/bin/updates-arch-combined.sh
+ = ~/bin/updates-arch-combined.sh
+interval = 600
+
 [global/wm]
-margin-top = 5
+margin-top = 0
 margin-bottom = 0
 
 ; vim:ft=dosini

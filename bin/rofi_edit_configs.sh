@@ -1,11 +1,10 @@
 #!/bin/bash
-#  ____ _____
-# |  _ \_   _|  Derek Taylor (DistroTube)
-# | | | || |    http://www.youtube.com/c/DistroTube
-# | |_| || |    http://www.gitlab.com/dwt1/
-# |____/ |_|
-#
-# Dmenu script for editing some of my more frequently edited config files.
+#   __           ___     __   __ 
+#  / /____  ___ <  /__ _/ /  / /_
+# / __/ _ \/ _ \/ / _ `/ _ \/ __/
+# \__/\___/_//_/_/\_, /_//_/\__/ 
+#                /___/           
+# https://github.com/ton1ght
 
 
 declare options=("alacritty
@@ -15,11 +14,12 @@ i3
 ranger
 vim
 polybar
+rofi
 xresources
 zsh
 quit")
 
-choice=$(echo -e "${options[@]}" | rofi -dmenu  -i -p 'Edit config file: ')
+choice=$(echo -e "${options[@]}" | rofi -dmenu  -i -p 'Edit config file')
 
 case "$choice" in
 	quit)
@@ -30,6 +30,9 @@ case "$choice" in
 	;;
 	picom)
 		choice="$HOME/.config/picom/picom.conf"
+	;;
+	rofi)
+		choice="$HOME/.config/rofi/config.rasi"
 	;;
 	dunst)
 		choice="$HOME/.config/dunst/dunstrc"

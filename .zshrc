@@ -2,7 +2,7 @@
 # => exports
 ###############################################################
 
-export TERM="xterm-256color"
+export TERM="alacritty"
 export SUDO_EDITOR="/usr/bin/nvim"
 export LANG=en_US.UTF-8
 export VISUAL="nvim"
