@@ -113,6 +113,7 @@ colorscheme base16-dracula
 
 call plug#begin(stdpath('data') . '/plugged')
 Plug 'itchyny/lightline.vim'
+Plug 'ap/vim-css-color'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'jremmen/vim-ripgrep'
 Plug 'daviesjamie/vim-base16-lightline'

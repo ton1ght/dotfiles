@@ -55,7 +55,7 @@ font-1 = FontAwesome:style=Regular:size=8;1
 
 modules-left = i3 xwindow 
 modules-center = date
-modules-right =  spotify updates-arch-combined filesystem pulseaudio battery
+modules-right =  spotify updates-arch-combined memory filesystem pulseaudio battery
 
 tray-position = right
 tray-padding = 1
@@ -285,6 +285,13 @@ animation-charging-3 = " "
 animation-charging-4 = " " 
 format-charging-background = ${xrdb:highlight}
 format-discharging-background = ${xrdb:background}
+
+[module/memory]
+type = internal/memory
+interval = 1
+format =  <label>
+format-padding = 1
+label = %gb_used%
 
 [settings]
 screenchange-reload = true
