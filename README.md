@@ -71,3 +71,5 @@ Thanks to everyone mentioned in this repository.
 Special thanks to:
 * [Luke Smith](https://github.com/LukeSmithxyz/)
 * [Jon Gjengset](https://github.com/Jonhoo)
+* [Stuxnot](https://github.com/Stuxnot)
+* [marzzzello](https://github.com/marzzzello)
