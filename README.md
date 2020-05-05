@@ -48,7 +48,7 @@ I use [arch](https://www.archlinux.de/), btw.
 ## Install dotfiles on a new system
 
 ```shell
-git clone --bare https://bitbucket.org/durdn/cfg.git $HOME/.cfg
+git clone --bare https://github.com/ton1ght/dotfiles.git $HOME/.cfg
 function config {
    /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
 }
