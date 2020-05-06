@@ -33,7 +33,7 @@ fixed-center = true
 background = ${xrdb:background}
 foreground = ${xrdb:foreground}
 
-line-size = 4
+line-size = 2
 label-line-color = #f00
 
 border-size = 4
@@ -178,7 +178,7 @@ interval = 1
 format-prefix = "ﱘ "
 format-padding = 1
 format = <label>
-exec = python ~/bin/spotify_status.py -t 64 -f '{artist}: {song}'
+exec = python ~/bin/spotify-status.py -t 64 -f '{artist}: {song}'
 
 [module/backlight]
 type = internal/backlight
