@@ -29,9 +29,9 @@ configuration {
 /*	sorting-method: ;*/
 /*	case-sensitive: false;*/
 /*	cycle: true;*/
-/*	sidebar-mode: false;*/
-/*	eh: 1;*/
-/*	auto-select: false;*/
+/* sidebar-mode: false; */
+/*	eh: 0;*/
+/*  auto-select: false; */
 /*	parse-hosts: false;*/
 /*	parse-known-hosts: true;*/
 /*	combi-modi: "window,run";*/

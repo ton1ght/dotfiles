@@ -31,11 +31,11 @@ exec_always --no-startup-id setxkbmap -option "caps:swapescape"
 #######################################
 
 ######### BORDER SETTINGS    ##########
-set $ginner 5
-set $gouter 1
+set $ginner 10
+set $gouter 10
 for_window [class="^.*"] border pixel 2
-gaps inner 5
-gaps outer 1
+gaps inner 10
+gaps outer 10
 smart_borders on
 #hide_edge_borders both
 # smart_gaps on

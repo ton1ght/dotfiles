@@ -26,7 +26,7 @@ font:
   size: 11.5
 
 # Transparency
-background_opacity: 0.9
+background_opacity: 0.8
 
 # Key bindings
 key_bindings:

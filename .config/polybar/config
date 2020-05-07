@@ -55,7 +55,7 @@ font-1 = FontAwesome:style=Regular:size=8;1
 
 modules-left = i3 xwindow 
 modules-center = date
-modules-right =  spotify updates-arch-combined memory filesystem pulseaudio battery
+modules-right =  spotify updates-arch-combined cpu memory filesystem pulseaudio battery
 
 tray-position = right
 tray-padding = 1
@@ -288,7 +288,7 @@ format-discharging-background = ${xrdb:background}
 
 [module/memory]
 type = internal/memory
-interval = 1
+interval = 0
 format =  <label>
 format-padding = 1
 label = %gb_used%
@@ -296,10 +296,16 @@ label = %gb_used%
 [settings]
 screenchange-reload = true
 
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+format =  <label>%
+format-padding = 1
+label = %percentage%
+
 [module/updates-arch-combined]
 type = custom/script
 exec = ~/bin/updates-arch-combined.sh
- = ~/bin/updates-arch-combined.sh
 interval = 600
 
 [global/wm]

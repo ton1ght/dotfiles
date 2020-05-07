@@ -117,6 +117,7 @@ Plug 'ap/vim-css-color'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'jremmen/vim-ripgrep'
 Plug 'daviesjamie/vim-base16-lightline'
+Plug 'ARM9/arm-syntax-vim'
 Plug 'junegunn/fzf.vim'
 " Plug 'chriskempson/base16-vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -142,11 +143,12 @@ call plug#end()
 hi Normal ctermbg=none
 hi NonText ctermbg=none
 
+au BufNewFile,BufRead *.s,*.S set filetype=arm " arm = armv6/7
 
 " goyo settings
 let g:goyo_width = "60%+20%"
 let g:goyo_height = "80%"
-let g:goyo_linenr = 1
+" let g:goyo_linenr = 1
 
 " statusline settings
 let g:lightline = {
