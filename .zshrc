@@ -1,3 +1,7 @@
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 ###############################################################
 # => exports
 ###############################################################
@@ -30,8 +34,8 @@ alias info="pacman -Q --info"
 alias grep="grep --color=auto"
 alias packages="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
 alias pm="sudo pacman -S"
-alias ls="exa -l --group-directories-first"
-alias ll="exa -al --group-directories-first"
+alias ls="exa --icons -l --group-directories-first"
+alias ll="exa --icons -al --group-directories-first"
 alias ranger="ranger"
 alias removeorphans="sudo pacman -Rns $(pacman -Qtdq)"
 alias polybarconfig="vim ~/.config/polybar/config"

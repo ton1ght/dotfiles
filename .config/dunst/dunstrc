@@ -1,13 +1,13 @@
 [global]
-    ### Display ###
-
+    frame_color = "#3F424D"
+    separator_color = frame
     monitor = eDP-1
-    follow = mouse
+    follow = keyboard
 
     geometry = "540x5-10+32"
     indicate_hidden = yes
     shrink = yes
-    transparency = 0
+    transparency = 5
     notification_height = 0
     separator_height = 3
     padding = 12
@@ -18,7 +18,7 @@
     idle_threshold = 120
 
     ### Text ###
-    font = RobotoMono Nerd Font  9
+    font = Arimo Nerd Font 10
     line_height = 0
 
     markup = full
@@ -54,11 +54,11 @@
 
     ### Misc/Advanced ###
     dmenu = /usr/bin/rofi -show run -p dunst:
-    browser = /usr/bin/google-chrome-stable
+    browser = /usr/bin/firefox
     always_run_script = true
     title = Dunst
     class = Dunst
-    startup_notification = false
+    startup_notification = true
     force_xinerama = false
 
 [experimental]
@@ -70,34 +70,20 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    background = base16_low.background
-    foreground = base16_low.foreground
+    background = "#2F343F"
+    foreground = "#cccccc"
+    frame_color = "#252730"
     timeout = 10
 
 [urgency_normal]
-    background = base16_normal.background
-    foreground = base16_normal.foreground
-    timeout = 10
+    background = "#2F343F"
+    foreground = "#cccccc"
+    frame_color = "#252730"
+    icon = /usr/share/icons/Arc/status/16/info.png
 
 [urgency_critical]
-    background = base16_critical.background
-    foreground = base16_critical.foreground
+    background = "#900000"
+    foreground = "#ffffff"
+    frame_color = "#ff0000"
     timeout = 0
-
-frame_color = "#383838"
-separator_color = "#383838"
-
-[base16_low]
-    msg_urgency = low
-    background = "#e8e8e8"
-    foreground = "#b8b8b8"
-
-[base16_normal]
-    msg_urgency = normal
-    background = "#d8d8d8"
-    foreground = "#383838"
-
-[base16_critical]
-    msg_urgency = critical
-    background = "#ab4642"
-    foreground = "#282828"
+    icon = /usr/share/icons/Arc/status/16/gtk-dialog-warning.png

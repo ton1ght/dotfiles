@@ -9,6 +9,8 @@
 
 declare options=("alacritty
 picom
+bspwm
+sxhkd
 dunst
 i3
 ranger
@@ -27,6 +29,12 @@ case "$choice" in
 	;;
 	alacritty)
 		choice="$HOME/.config/alacritty/alacritty.yml"
+	;;
+	bspwm)
+		choice="$HOME/.config/bspwm/bspwmrc"
+	;;
+	sxhkd)
+		choice="$HOME/.config/sxhkd/sxhkdrc"
 	;;
 	picom)
 		choice="$HOME/.config/picom/picom.conf"

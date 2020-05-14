@@ -23,10 +23,14 @@ font:
     family: Hack Nerd Font Mono
     style: Bold Italic
 
-  size: 11.5
+  size: 12
+
+  offset:
+    x: -1
+    y: 0
 
 # Transparency
-background_opacity: 0.8
+background_opacity: 0.9
 
 # Key bindings
 key_bindings:

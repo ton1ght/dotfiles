@@ -51,11 +51,10 @@ module-margin-left = 0
 module-margin-right = 0
 
 font-0 = Arimo Nerd Font:size=11;1
-font-1 = FontAwesome:style=Regular:size=8;1
 
-modules-left = i3 xwindow 
-modules-center = date
-modules-right =  spotify updates-arch-combined cpu memory filesystem pulseaudio battery
+modules-left = bspwm xwindow 
+modules-center = date openweathermap-simple
+modules-right =  spotify updates-arch-combined memory filesystem pulseaudio battery
 
 tray-position = right
 tray-padding = 1
@@ -164,7 +163,7 @@ label-mounted-foreground = ${xrdb:foreground}
 type = internal/date
 interval = 1
 
-date = "%A %d %b %Y, "
+date = "%A %d %b %Y   "
 time = %R:%S
 
 format-padding= 1
@@ -178,7 +177,7 @@ interval = 1
 format-prefix = "ﱘ "
 format-padding = 1
 format = <label>
-exec = python ~/bin/spotify-status.py -t 64 -f '{artist}: {song}'
+exec = python ~/bin/spotify_status.py -t 64 -f '{artist}: {song}'
 
 [module/backlight]
 type = internal/backlight
@@ -313,3 +312,41 @@ margin-top = 0
 margin-bottom = 0
 
 ; vim:ft=dosini
+[module/openweathermap-simple]
+type = custom/script
+exec = ~/bin/openweathermap_simple.sh
+interval = 600
+label-font = 1
+
+[module/bspwm]
+type = internal/bspwm
+
+; Only show workspaces defined on the same output as the bar
+; NOTE: The bspwm and XRandR monitor names must match, which they do by default.
+; But if you rename your bspwm monitors with bspc -n this option will no longer
+; behave correctly.
+; Default: true
+pin-workspaces = true
+
+; Output mode flags after focused state label
+; Default: false
+inline-mode = false
+
+; Create click handler used to focus workspace
+; Default: true
+enable-click = false
+
+; Create scroll handlers used to cycle workspaces
+; Default: true
+enable-scroll = false
+
+; Set the scroll cycle direction 
+; Default: true
+reverse-scroll = false
+
+; Use fuzzy (partial) matching on labels when assigning 
+; icons to workspaces
+; Example: code;♚ will apply the icon to all workspaces 
+; containing 'code' in the label
+; Default: false
+fuzzy-match = true
