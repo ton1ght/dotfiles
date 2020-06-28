@@ -20,6 +20,8 @@
 " ################################################################################################
 " # BASIC SETTINGS
 " ################################################################################################
+"
+au BufRead,BufNewFile *.txt set filetype=arm
 
 set title
 set updatetime=300 " you will have bad experience for diagnostic messages when it's default 4000
@@ -56,6 +58,10 @@ set gdefault
 
 " set leader
 let mapleader = ","
+
+" remove highlight after search
+nnoremap <leader>sa ggVG
+nnoremap <leader>ya ggVG"+y
 
 " remove highlight after search
 nnoremap <leader><cr> :noh<cr>
@@ -113,7 +119,8 @@ colorscheme base16-dracula
 
 call plug#begin(stdpath('data') . '/plugged')
 Plug 'itchyny/lightline.vim'
-Plug 'lilydjwg/colorizer'
+"Plug 'tpope/vim-fugitive'
+"Plug 'lilydjwg/colorizer'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'jremmen/vim-ripgrep'
 Plug 'daviesjamie/vim-base16-lightline'
@@ -139,6 +146,10 @@ call plug#end()
 " ################################################################################################
 " # PLUGIN SETTINGS
 " ################################################################################################
+
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_compiler_progname = 'nvr'
+let g:tex_flavor = 'latex'
 
 hi Normal ctermbg=none
 hi NonText ctermbg=none
@@ -262,7 +273,7 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> gc <Plug>(coc-declaration)
+nmap <silent> gc <Plug>(coc-declaration)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
@@ -316,8 +327,8 @@ omap af <Plug>(coc-funcobj-a)
 " Use <TAB> for selections ranges.
 " NOTE: Requires 'textDocument/selectionRange' support from the language server.
 " coc-tsserver, coc-python are the examples of servers that support it.
-nmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <TAB> <Plug>(coc-range-select)
+" nmap <silent> <TAB> <Plug>(coc-range-select)
+" xmap <silent> <TAB> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
@@ -350,4 +361,3 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR> 
-

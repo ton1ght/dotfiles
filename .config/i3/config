@@ -11,8 +11,9 @@ font xft:Hack Nerd Font Mono 10
 #######################################
 
 ######### STARTUP PROGRAMS   ##########
+exec_always --no-startup-id autorandr -c
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id picom
+#exec_always --no-startup-id picom
 exec_always --no-startup-id feh --bg-scale ~/pic/wallpaper/mountains.jpg
 exec --no-startup-id keepassxc
 exec_always --no-startup-id xinput --set-prop 23 'libinput Accel Profile Enabled' 0, 1
@@ -34,8 +35,8 @@ exec_always --no-startup-id setxkbmap -option "caps:swapescape"
 set $ginner 10
 set $gouter 10
 for_window [class="^.*"] border pixel 2
-gaps inner 10
-gaps outer 10
+gaps inner 0
+gaps outer 0
 smart_borders on
 #hide_edge_borders both
 # smart_gaps on
