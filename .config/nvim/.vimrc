@@ -20,7 +20,10 @@
 " ################################################################################################
 " # BASIC SETTINGS
 " ################################################################################################
-"
+
+" disable auto comment
+autocmd FileType,BufNewFile,BufRead * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
 au BufRead,BufNewFile *.txt set filetype=arm
 
 set title
@@ -51,6 +54,7 @@ set incsearch
 set ignorecase
 set smartcase
 set gdefault
+
 
 " ################################################################################################
 " # MAPPINGS
@@ -110,6 +114,8 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 " # STYLE
 " ################################################################################################
 
+:set fillchars+=vert:\ 
+hi VertSplit ctermbg=256
 let base16colorspace=256
 colorscheme base16-dracula
 
@@ -147,11 +153,18 @@ call plug#end()
 " # PLUGIN SETTINGS
 " ################################################################################################
 
+" Ensure you have installed some decent font to show these pretty symbols, then you can enable icon for the kind.
+let g:vista#renderer#enable_icon = 1
+
+" Executive used when opening vista sidebar without specifying it.
+" See all the avaliable executives via `:echo g:vista#executives`.
+let g:vista_default_executive = 'coc'
+
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_progname = 'nvr'
 let g:tex_flavor = 'latex'
 
-hi Normal ctermbg=none
+hi Normal ctermfg=none
 hi NonText ctermbg=none
 
 au BufNewFile,BufRead *.s,*.S set filetype=arm " arm = armv6/7
