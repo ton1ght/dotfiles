@@ -99,6 +99,9 @@ map <C-t> :Vista<CR>
 map <C-p> :Files<CR>
 map <C-b> :Buffers<CR>
 
+" switch between buffers fast
+nnoremap <leader><leader> <c-^>
+
 " Smart way to move between windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k

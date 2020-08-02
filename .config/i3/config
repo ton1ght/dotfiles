@@ -16,11 +16,13 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec_always --no-startup-id picom
 exec_always --no-startup-id feh --bg-scale ~/pic/wallpaper/mountains.jpg
 exec --no-startup-id keepassxc
+exec --no-startup-id protonmail-bridge --cli
 exec_always --no-startup-id xinput --set-prop 23 'libinput Accel Profile Enabled' 0, 1
 exec_always --no-startup-id xinput set-prop 30 359 -0.75
 exec_always --no-startup-id xautolock -time 15 -locker 'betterlockscreen -l' -notifier "dunstify 'Locking screen in 30 seconds.'" -notify 30
 exec --no-startup-id pasystray
 exec_always --no-startup-id dunst
+exec_always --no-startup-id kdeconnect-cli --refresh
 exec --no-startup-id thunderbird
 exec --no-startup-id alacritty -t "calc" -e python
 exec --no-startup-id redshift
