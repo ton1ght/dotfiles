@@ -65,6 +65,10 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 ###############################################################
 # => General
 ###############################################################
+
+# keychain saves ssh keys for one session
+eval $(keychain --eval --noask --quiet --confhost emproof github)
+
 ZLE_RPROMPT_INDENT=0
 autoload -U compinit
 compinit -i
