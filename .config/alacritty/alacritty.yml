@@ -90,5 +90,4 @@ colors:
 
 window:
     decorations: none
-
-dynamic_title: true
+    dynamic_title: true
