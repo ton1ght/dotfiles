@@ -127,6 +127,7 @@ colorscheme base16-dracula
 " ################################################################################################
 
 call plug#begin(stdpath('data') . '/plugged')
+Plug 'mhinz/vim-signify'
 Plug 'itchyny/lightline.vim'
 "Plug 'tpope/vim-fugitive'
 "Plug 'lilydjwg/colorizer'
@@ -249,7 +250,7 @@ set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=300
+set updatetime=100
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c

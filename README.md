@@ -31,6 +31,7 @@ I use [arch](https://www.archlinux.de/), btw.
 |   [coc.nvim](https://www.github.com/neoclide/coc.nvim) |  IntelliSense engine  |
 |   [vim-commentary](https://www.github.com/tpope/vim-commentary) |  Bulk commenting tool  |
 |   [vim-surround](https://www.github.com/tpope/vim-surround) |  Easily change surroundings, e.g. parenthesis |
+|   [vim-signify](https://github.com/mhinz/vim-signify) | Indicates added, modified and removed lines |
 
 
 ## Shell
