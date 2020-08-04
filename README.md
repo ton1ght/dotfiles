@@ -32,6 +32,7 @@ I use [arch](https://www.archlinux.de/), btw.
 |   [vim-commentary](https://www.github.com/tpope/vim-commentary) |  Bulk commenting tool  |
 |   [vim-surround](https://www.github.com/tpope/vim-surround) |  Easily change surroundings, e.g. parenthesis |
 |   [vim-signify](https://github.com/mhinz/vim-signify) | Indicates added, modified and removed lines |
+|   [vista.vim](https://github.com/liuchengxu/vista.vim) | View and search LSP symbols and tags |
 
 
 ## Shell
