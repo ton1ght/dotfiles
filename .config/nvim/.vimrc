@@ -117,10 +117,15 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 " # STYLE
 " ################################################################################################
 
+
 :set fillchars+=vert:\ 
 hi VertSplit ctermbg=256
 let base16colorspace=256
 colorscheme base16-dracula
+
+hi Conceal ctermfg=8
+hi Normal ctermfg=none
+hi NonText ctermbg=none
 
 " ################################################################################################
 " # PLUGINS
@@ -128,9 +133,9 @@ colorscheme base16-dracula
 
 call plug#begin(stdpath('data') . '/plugged')
 Plug 'mhinz/vim-signify'
+Plug 'Yggdroot/indentLine'
+Plug 'tpope/vim-fugitive'
 Plug 'itchyny/lightline.vim'
-"Plug 'tpope/vim-fugitive'
-"Plug 'lilydjwg/colorizer'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'jremmen/vim-ripgrep'
 Plug 'daviesjamie/vim-base16-lightline'
@@ -145,17 +150,20 @@ Plug 'honza/vim-snippets'
 Plug 'lervag/vimtex'
 Plug 'liuchengxu/vista.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'ryanoasis/vim-devicons' 
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons' 
 call plug#end()
 
 " ################################################################################################
 " # PLUGIN SETTINGS
 " ################################################################################################
+
+let g:indentLine_char = '┆'
+
+let g:indentLine_setColors = 0
+hi Conceal ctermfg=8
 
 " Ensure you have installed some decent font to show these pretty symbols, then you can enable icon for the kind.
 let g:vista#renderer#enable_icon = 1
@@ -167,9 +175,6 @@ let g:vista_default_executive = 'coc'
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_progname = 'nvr'
 let g:tex_flavor = 'latex'
-
-hi Normal ctermfg=none
-hi NonText ctermbg=none
 
 au BufNewFile,BufRead *.s,*.S set filetype=arm " arm = armv6/7
 
