@@ -28,15 +28,19 @@ au BufRead,BufNewFile *.txt set filetype=arm
 
 set title
 set updatetime=300 " you will have bad experience for diagnostic messages when it's default 4000
+set pumheight=15 " size of pop up window
 set noshowmode " disable mode status, since this is already integrated in airline
 set mouse=a " enable mouse
 set undodir=~/.vimdid " set undofile
 set undofile " enable undofile
 set number " enable line numbers
 set relativenumber " enable relative line numbers
+set smartindent " makes indenting smart
+set autoindent
 set laststatus=2 " always show the statusline
 set showmatch " show matching brackets
 set encoding=utf8 " set encoding to utf8
+set formatoptions-=cro " stop auto comment
 
 " better tabs
 set shiftwidth=4
@@ -61,7 +65,8 @@ set gdefault
 " ################################################################################################
 
 " set leader
-let mapleader = ","
+nnoremap <SPACE> <Nop>
+let mapleader=" "
 
 " remove highlight after search
 nnoremap <leader>sa ggVG
@@ -108,6 +113,12 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+" Use alt + hjkl to resize windows
+nnoremap <M-j>    :resize -2<CR>
+nnoremap <M-k>    :resize +2<CR>
+nnoremap <M-h>    :vertical resize -2<CR>
+nnoremap <M-l>    :vertical resize +2<CR>
+
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
@@ -132,35 +143,63 @@ hi NonText ctermbg=none
 " ################################################################################################
 
 call plug#begin(stdpath('data') . '/plugged')
-Plug 'mhinz/vim-signify'
-Plug 'Yggdroot/indentLine'
-Plug 'tpope/vim-fugitive'
-Plug 'itchyny/lightline.vim'
-Plug 'mengelbrecht/lightline-bufferline'
-Plug 'jremmen/vim-ripgrep'
-Plug 'daviesjamie/vim-base16-lightline'
-Plug 'ARM9/arm-syntax-vim'
-Plug 'junegunn/fzf.vim'
 " Plug 'chriskempson/base16-vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/goyo.vim'
+" Plug 'daviesjamie/vim-base16-lightline'
+" Plug 'itchyny/lightline.vim'
+" Plug 'mengelbrecht/lightline-bufferline'
+Plug 'ARM9/arm-syntax-vim'
+Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-rooter'
 Plug 'dylanaraps/wal.vim'
 Plug 'honza/vim-snippets'
+Plug 'jiangmiao/auto-pairs'
+Plug 'jremmen/vim-ripgrep'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
 Plug 'lervag/vimtex'
 Plug 'liuchengxu/vista.vim'
+Plug 'mhinz/vim-signify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'ryanoasis/vim-devicons' 
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'ryanoasis/vim-devicons' 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 " ################################################################################################
 " # PLUGIN SETTINGS
 " ################################################################################################
 
+let g:AutoPairsCenterLine = 0
+
 let g:indentLine_char = '┆'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#fnamemod = ':t' 
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols#branch = ''
+let g:airline_symbols#readonly = ''
+let g:airline_symbols#linenr = ''
+let g:airline#extensions#tabline#enabled = 1
+
+if has('autocmd')
+  augroup airline_init
+    autocmd!
+    autocmd User AirlineAfterInit
+      \ call s:airline_init()
+  augroup END
+endif
+
+function! s:airline_init()
+  let g:airline_section_error = airline#section#create([])
+  let g:airline_section_warning = airline#section#create([])
+endfunction
 
 let g:indentLine_setColors = 0
 hi Conceal ctermfg=8
@@ -184,25 +223,25 @@ let g:goyo_height = "80%"
 " let g:goyo_linenr = 1
 
 " statusline settings
-let g:lightline = {
-	\ 'colorscheme': 'base16',
-	\ 'active': {
-	\   'left': [ [ 'mode', 'paste' ],
-	\             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
-	\ },
-	\ 'component_function': {
-	\   'cocstatus': 'coc#status'
-	\ },
-\ }
-
-let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
-let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-let g:lightline.component_type   = {'buffers': 'tabsel'}
-" let g:lightline#bufferline#shorten_path = 0
-let g:lightline#bufferline#filename_modifier = ':t'
+" let g:lightline = {
+" 	\ 'colorscheme': 'base16',
+" 	\ 'active': {
+" 	\   'left': [ [ 'mode', 'paste' ],
+" 	\             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+" 	\ },
+" 	\ 'component_function': {
+" 	\   'cocstatus': 'coc#status'
+" 	\ },
+" \ }
+" 
+" let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
+" let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+" let g:lightline.component_type   = {'buffers': 'tabsel'}
+" " let g:lightline#bufferline#shorten_path = 0
+" let g:lightline#bufferline#filename_modifier = ':t'
 set showtabline=2
 
-autocmd BufWritePost,TextChanged,TextChangedI * call lightline#update()
+" autocmd BufWritePost,TextChanged,TextChangedI * call lightline#update()
 
 " ################################################################################################
 " # Functions
