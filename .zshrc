@@ -19,6 +19,7 @@ export EDITOR="nvim"
 source ~/.zplug/init.zsh
 zplug romkatv/powerlevel10k, use:powerlevel10k.zsh-theme
 zplug "zsh-users/zsh-autosuggestions"
+zplug "softmoth/zsh-vim-mode"
 # zplug "sindresorhus/pure"
 zplug "zsh-users/zsh-completions"
 zplug "junegunn/fzf", use:"shell/completion.zsh"
