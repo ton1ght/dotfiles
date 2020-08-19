@@ -68,7 +68,8 @@ set gdefault
 nnoremap <SPACE> <Nop>
 let mapleader=" "
 
-" remove highlight after search
+map <leader>vc :VimtexCompile<CR>
+
 nnoremap <leader>sa ggVG
 nnoremap <leader>ya ggVG"+y
 
@@ -128,18 +129,8 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 nnoremap <space>ga :Git add %:p<CR><CR>
 nnoremap <space>gs :Gstatus<CR>
 nnoremap <space>gc :Gcommit -v -q<CR>
-nnoremap <space>gt :Gcommit -v -q %:p<CR>
-nnoremap <space>gd :Gdiff<CR>
-nnoremap <space>ge :Gedit<CR>
-nnoremap <space>gr :Gread<CR>
-nnoremap <space>gw :Gwrite<CR><CR>
-nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
-nnoremap <space>gp :Ggrep<Space>
-nnoremap <space>gm :Gmove<Space>
- "nnoremap <space>gb :Git branch<Space>
- "nnoremap <space>go :Git checkout<Space>
-" nnoremap <space>gps :Dispatch! git push<CR>
-" nnoremap <space>gpl :Dispatch! git pull<CR>
+nmap <leader>gh :diffget //3<CR>
+nmap <leader>gu :diffget //2<CR>
 
 " ################################################################################################
 " # STYLE
@@ -164,6 +155,7 @@ call plug#begin(stdpath('data') . '/plugged')
 " Plug 'daviesjamie/vim-base16-lightline'
 " Plug 'itchyny/lightline.vim'
 " Plug 'mengelbrecht/lightline-bufferline'
+Plug 'dpelle/vim-LanguageTool'
 Plug 'ARM9/arm-syntax-vim'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-rooter'
@@ -190,8 +182,8 @@ call plug#end()
 " ################################################################################################
 " # PLUGIN SETTINGS
 " ################################################################################################
-
-let g:vimtex_quickfix_latexlog = {'default' : 0}
+let g:languagetool_jar='/usr/share/java/languagetool/languagetool-commandline.jar'
+let g:vimtex_quickfix_open_on_warning = 0
 
 let g:AutoPairsCenterLine = 0
 
@@ -353,7 +345,7 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gc <Plug>(coc-declaration)
+" nmap <silent> gc <Plug>(coc-declaration)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
