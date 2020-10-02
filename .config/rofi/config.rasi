@@ -3,10 +3,10 @@ configuration {
 /*	width: 50;*/
 /*	lines: 15;*/
 /*	columns: 1;*/
-	font: "Arimo Nerd Font 15";
+	font: "Arimo Nerd Font 18";
 /*	bw: 1;*/
 /*	location: 0;*/
-/*	padding: 5;*/
+/* padding: 5; */
 /*	yoffset: 0;*/
 /*	xoffset: 0;*/
 /*	fixed-num-lines: true;*/

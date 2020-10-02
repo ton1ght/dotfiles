@@ -41,6 +41,7 @@ set laststatus=2 " always show the statusline
 set showmatch " show matching brackets
 set encoding=utf8 " set encoding to utf8
 set formatoptions-=cro " stop auto comment
+set conceallevel=0 " stop concealling
 
 " better tabs
 set shiftwidth=4
@@ -155,7 +156,7 @@ call plug#begin(stdpath('data') . '/plugged')
 " Plug 'daviesjamie/vim-base16-lightline'
 " Plug 'itchyny/lightline.vim'
 " Plug 'mengelbrecht/lightline-bufferline'
-Plug 'dpelle/vim-LanguageTool'
+" Plug 'dpelle/vim-LanguageTool'
 Plug 'ARM9/arm-syntax-vim'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-rooter'
@@ -165,9 +166,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim'
+" Plug 'junegunn/goyo.vim'
 Plug 'lervag/vimtex'
-Plug 'liuchengxu/vista.vim'
+" Plug 'liuchengxu/vista.vim'
 Plug 'mhinz/vim-signify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ryanoasis/vim-devicons' 
@@ -188,6 +189,8 @@ let g:vimtex_quickfix_open_on_warning = 0
 let g:AutoPairsCenterLine = 0
 
 let g:indentLine_char = '┆'
+let g:indentLine_setConceal = 0
+
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#fnamemod = ':t' 
 let g:airline_left_sep = ''

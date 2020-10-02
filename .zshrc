@@ -11,6 +11,7 @@ export SUDO_EDITOR="/usr/bin/nvim"
 export LANG=en_US.UTF-8
 export VISUAL="nvim"
 export EDITOR="nvim"
+export PATH=$PATH:/$HOME/bin
 
 ###############################################################
 # => zplug
@@ -19,7 +20,7 @@ export EDITOR="nvim"
 source ~/.zplug/init.zsh
 zplug romkatv/powerlevel10k, use:powerlevel10k.zsh-theme
 zplug "zsh-users/zsh-autosuggestions"
-zplug "softmoth/zsh-vim-mode"
+# zplug "softmoth/zsh-vim-mode"
 # zplug "sindresorhus/pure"
 zplug "zsh-users/zsh-completions"
 zplug "junegunn/fzf", use:"shell/completion.zsh"
@@ -91,11 +92,16 @@ SAVEHIST=10000
 HISTFILE=~/.zsh_history
 
 bindkey -v
+bindkey '^R' history-incremental-search-backward
 
 ZSH_AUTOSUGGEST_STRATEGY=history
 
-bindkey "^[[A" history-beginning-search-backward
-bindkey "^[[B" history-beginning-search-forward
+# place cursor at the end
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^[[A" history-beginning-search-backward-end
+bindkey "^[[B" history-beginning-search-forward-end
 
 
 # zsh suggestions keybindings

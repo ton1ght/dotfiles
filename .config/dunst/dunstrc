@@ -18,7 +18,7 @@
     idle_threshold = 120
 
     ### Text ###
-    font = Arimo Nerd Font 10
+    font = Arimo Nerd Font 15
     line_height = 0
 
     markup = full
@@ -58,7 +58,7 @@
     always_run_script = true
     title = Dunst
     class = Dunst
-    startup_notification = true
+    startup_notification = false
     force_xinerama = false
 
 [experimental]

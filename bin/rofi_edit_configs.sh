@@ -9,6 +9,8 @@
 
 declare options=("alacritty
 picom
+redshift
+xmodmap
 bspwm
 sxhkd
 dunst
@@ -29,6 +31,12 @@ case "$choice" in
 	;;
 	alacritty)
 		choice="$HOME/.config/alacritty/alacritty.yml"
+	;;
+	redshift)
+		choice="$HOME/.config/redshift/redshift.conf"
+	;;
+	xmodmap)
+		choice="$HOME/.Xmodmap"
 	;;
 	bspwm)
 		choice="$HOME/.config/bspwm/bspwmrc"

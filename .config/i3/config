@@ -7,30 +7,32 @@
 
 ######### GENERAL SETTINGS   ##########
 set $mod Mod4
-font xft:Hack Nerd Font Mono 10
+floating_modifier $mod
+font xft:Hack Nerd Font Mono 15
 #######################################
 
 ######### STARTUP PROGRAMS   ##########
-exec_always --no-startup-id autorandr -c
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-#exec_always --no-startup-id picom
-exec_always --no-startup-id feh --bg-scale ~/pic/wallpaper/mountains.jpg
-exec --no-startup-id keepassxc
-exec --no-startup-id protonmail-bridge --cli
-exec_always --no-startup-id xinput --set-prop 23 'libinput Accel Profile Enabled' 0, 1
-exec_always --no-startup-id xinput set-prop 30 359 -0.75
-exec_always --no-startup-id xautolock -time 15 -locker 'betterlockscreen -l' -notifier "dunstify 'Locking screen in 30 seconds.'" -notify 30
-exec --no-startup-id pasystray
-exec_always --no-startup-id dunst
-exec_always --no-startup-id kdeconnect-cli --refresh
-exec --no-startup-id thunderbird
+#exec_always --no-startup-id xautolock -time 15 -locker 'betterlockscreen -l' -notifier "dunstify 'Locking screen in 30 seconds.'" -notify 30
+#exec_always --no-startup-id xinput --set-prop 23 'libinput Accel Profile Enabled' 0, 1
+#exec_always --no-startup-id xinput set-prop 30 359 -0.75
 exec --no-startup-id alacritty -t "calc" -e python
+exec --no-startup-id keepassxc
+exec --no-startup-id nm-applet
+exec --no-startup-id pasystray
+exec --no-startup-id protonmail-bridge --noninteractive
 exec --no-startup-id redshift
 exec --no-startup-id seafile-applet
-exec --no-startup-id nm-applet
-exec --no-startup-id protonmail-bridge --cli
+exec --no-startup-id thunderbird
+exec --no-startup-id i3_battery_pop.sh -m "Battery low"
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+#exec_always --no-startup-id autorandr -c
+exec_always --no-startup-id dunst
+#exec_always --no-startup-id kdeconnect-cli --refresh
+#exec_always --no-startup-id setxkbmap -option "caps:swapescape"
+exec_always --no-startup-id xmodmap ~/.Xmodmap
+exec_always --no-startup-id xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off
 exec_always --no-startup-id xset r rate 200 30
-exec_always --no-startup-id setxkbmap -option "caps:swapescape"
+exec_always --no-startup-id feh --bg-scale ~/pic/wallpaper/mountains.jpg
 #######################################
 
 ######### BORDER SETTINGS    ##########
@@ -51,7 +53,7 @@ bindsym $mod+Shift+g	gaps inner current set 0; gaps outer current set 0;
 bindsym $mod+r exec alacritty -e bash -c "SHELL=/bin/bash ranger"
 
 # key binding for editing configuration files
-bindsym --release $mod+plus exec ~/bin/rofi_edit_configs.sh
+bindsym --release $mod+shift+c exec ~/bin/rofi_edit_configs.sh
 
 # key binding for screenshots
 bindsym Print exec scrot -q 100 -e 'mv $f ~/Pictures/Screenshots' && dunstify -i "gnome-panel-screenshot" "Screenshot taken."
@@ -62,44 +64,34 @@ bindsym $mod+period exec xautolock -enable && dunstify "Autolock turned off."
 bindsym $mod+Shift+period exec xautolock -disable && dunstify "Autolock turned on."
 
 # Make the currently focused window a scratchpad
-bindsym $mod+Shift+minus move scratchpad
+# bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
-bindsym $mod+minus scratchpad show
+# bindsym $mod+minus scratchpad show
 
 # lockscreen / hibernate
 bindsym $mod+x exec betterlockscreen -s
-bindsym $mod+shift+x exec xautolock -locknow
-
-# ostrich
-bindsym XF86Tools exec --no-startup-id ~/bin/toggle/toggle.sh "feh -F --zoom 100 /home/zoloboz/Pictures/ostrich2.jpg"
-
-# change display settings
-bindsym XF86Display exec --no-startup-id ~/bin/display.sh > /dev/null
+bindsym $mod+shift+x exec betterlockscreen -l
 
 # volume keys
-# bindsym XF86AudioRaiseVolume exec --no-startup-id ~/bin/volume.sh +5% && ~/bin/volume.sh unmute
-# bindsym XF86AudioLowerVolume exec --no-startup-id ~/bin/volume.sh -5% && ~/bin/volume.sh unmute
-# bindsym XF86AudioMute exec --no-startup-id ~/bin/volume.sh toggle
-bindsym XF86AudioLowerVolume exec --no-startup-id i3-volume -d 5 -y -n -l && paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
-bindsym XF86AudioRaiseVolume exec --no-startup-id i3-volume -i 5 -y -n -l && paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
-
-bindsym XF86AudioMute exec --no-startup-id i3-volume -m -y -n -l
-
-# media keys
-# bindsym XF86AudioNext exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
-# bindsym XF86AudioPrevious exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
-# bindsym XF86AudioPlay exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+bindsym $mod+plus exec --no-startup-id i3-volume -i 5 -y -l
+bindsym $mod+minus exec --no-startup-id i3-volume -d 5 -y -l
+bindsym $mod+m exec --no-startup-id i3-volume -m -y -l
 
 # brightness shortcuts
-bindsym XF86MonBrightnessUp exec ~/bin/brightness.sh -A 10
-bindsym XF86MonBrightnessDown exec ~/bin/brightness.sh -U 10
-
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+bindsym $mod+shift+plus exec brightnessctl set +10%
+bindsym $mod+shift+minus exec brightnessctl set 10-%
 
 # start a terminal
-# bindsym $mod+Return exec urxvt 
 bindsym $mod+Return exec alacritty 
+
+# start a browser
+bindsym $mod+b exec firefox 
+
+# weather
+bindsym $mod+w exec alacritty -t weather -e bash -c 'curl wttr.in/Husum & read line'
+
+# spotify
+bindsym $mod+p exec alacritty -e spt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -150,7 +142,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+#bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -220,7 +212,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+# bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r exec --no-startup-id i3-msg restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -240,6 +232,7 @@ for_window [title="^calc$"] sticky enable
 for_window [title="^calc$"] resize set 500 300
 for_window [title="dropdown"] move scratchpad
 for_window [title="dropdown"] sticky enable
+for_window [title="weather"] fullscreen enable
 #######################################
 
 ######### COLOR SETTINGS     ##########
