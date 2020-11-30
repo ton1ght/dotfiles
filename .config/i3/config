@@ -8,7 +8,7 @@
 ######### GENERAL SETTINGS   ##########
 set $mod Mod4
 floating_modifier $mod
-font xft:Hack Nerd Font Mono 15
+font xft:Arimo Nerd Font 12 
 #######################################
 
 ######### STARTUP PROGRAMS   ##########
@@ -17,6 +17,7 @@ font xft:Hack Nerd Font Mono 15
 #exec_always --no-startup-id xinput set-prop 30 359 -0.75
 exec --no-startup-id alacritty -t "calc" -e python
 exec --no-startup-id keepassxc
+exec --no-startup-id picom
 exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
 exec --no-startup-id protonmail-bridge --noninteractive
@@ -27,10 +28,10 @@ exec --no-startup-id i3_battery_pop.sh -m "Battery low"
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec_always --no-startup-id autorandr -c
 exec_always --no-startup-id dunst
-#exec_always --no-startup-id kdeconnect-cli --refresh
+exec_always --no-startup-id kdeconnect-cli --refresh
 #exec_always --no-startup-id setxkbmap -option "caps:swapescape"
 exec_always --no-startup-id xmodmap ~/.Xmodmap
-exec_always --no-startup-id xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off
+#exec_always --no-startup-id xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off
 exec_always --no-startup-id xset r rate 200 30
 exec_always --no-startup-id feh --bg-scale ~/pic/wallpaper/mountains.jpg
 #######################################
@@ -38,7 +39,7 @@ exec_always --no-startup-id feh --bg-scale ~/pic/wallpaper/mountains.jpg
 ######### BORDER SETTINGS    ##########
 set $ginner 10
 set $gouter 10
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 3
 gaps inner 0
 gaps outer 0
 smart_borders on
@@ -54,6 +55,9 @@ bindsym $mod+r exec alacritty -e bash -c "SHELL=/bin/bash ranger"
 
 # key binding for editing configuration files
 bindsym --release $mod+shift+c exec ~/bin/rofi_edit_configs.sh
+
+# key binding for editing configuration files
+bindsym --release $mod+m exec ~/bin/change_monitor_layout.sh
 
 # key binding for screenshots
 bindsym Print exec scrot -q 100 -e 'mv $f ~/Pictures/Screenshots' && dunstify -i "gnome-panel-screenshot" "Screenshot taken."
@@ -88,7 +92,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+b exec firefox 
 
 # weather
-bindsym $mod+w exec alacritty -t weather -e bash -c 'curl wttr.in/Husum & read line'
+bindsym $mod+w exec alacritty --hold -t weather -e bash -c 'curl wttr.in/Bochum'
 
 # spotify
 bindsym $mod+p exec alacritty -e spt
@@ -99,7 +103,7 @@ bindsym $mod+Shift+q kill
 # launcher
 bindsym $mod+d exec rofi -show drun -show-icons
 bindsym $mod+Shift+d exec rofi -show run
-bindsym $mod+Shift+s exec ~/bin/powermenu.sh
+bindsym $mod+Shift+s exec rofi -show ssh
 bindsym $mod+Shift+w exec rofi -show window
 
 # scratchpad calc

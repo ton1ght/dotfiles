@@ -11,7 +11,7 @@ export SUDO_EDITOR="/usr/bin/nvim"
 export LANG=en_US.UTF-8
 export VISUAL="nvim"
 export EDITOR="nvim"
-export PATH=$PATH:/$HOME/bin
+export PATH=$PATH:$HOME/bin
 
 ###############################################################
 # => zplug
@@ -32,24 +32,15 @@ zplug load
 ###############################################################
 alias dualmon="xrandr --output eDP-1-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1-1 --off --output HDMI-1-1 --off --output DP-1-2 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-1-2 --off && i3-msg restart"
 alias termreload="xrdb .Xresources"
+alias polybarreload="$HOME/.config/polybar/launch.sh"
 alias info="pacman -Q --info"
 alias grep="grep --color=auto"
 alias packages="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
-alias pm="sudo pacman -S"
 alias ls="exa --icons -l --group-directories-first"
 alias ll="exa --icons -al --group-directories-first"
-alias ranger="ranger"
 alias removeorphans="sudo pacman -Rns $(pacman -Qtdq)"
-alias polybarconfig="vim ~/.config/polybar/config"
-alias hirnlogin="~/bin/hirnlogin.sh"
 alias vim="nvim"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias zshrc="vim ~/.zshrc"
-alias rangerconfig="vim ~/.config/ranger/rc.conf"
-alias vimrc="vim ~/.config/nvim/.vimrc"
-alias shconfig="vim .bashrc"
-alias i3config="vim ~/.config/i3/config"
-alias termiteconfig="vim ~/.config/termite/config"
 
 ###############################################################
 # => Powerlevel10k
@@ -69,7 +60,7 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 ###############################################################
 
 # keychain saves ssh keys for one session
-eval $(keychain --eval --noask --quiet --confhost emproof github)
+eval $(keychain --eval --quiet --confhost github)
 
 ZLE_RPROMPT_INDENT=0
 autoload -U compinit
@@ -77,6 +68,7 @@ compinit -i
 setopt COMPLETE_IN_WORD
 setopt ALWAYS_TO_END
 setopt MENU_COMPLETE
+setopt hist_ignore_all_dups
 setopt COMPLETE_ALIASES
 setopt LIST_ROWS_FIRST
 setopt globdots auto_cd auto_pushd
@@ -93,6 +85,15 @@ HISTFILE=~/.zsh_history
 
 bindkey -v
 bindkey '^R' history-incremental-search-backward
+bindkey '^F' history-incremental-search-forward
+
+# Search backwards and forwards with a pattern
+#bindkey -M vicmd '/' history-incremental-pattern-search-backward
+#bindkey -M vicmd '?' history-incremental-pattern-search-forward
+#
+## set up for insert mode too
+#bindkey -M viins '^R' history-incremental-pattern-search-backward
+#bindkey -M viins '^F' history-incremental-pattern-search-forward
 
 ZSH_AUTOSUGGEST_STRATEGY=history
 
@@ -100,9 +101,11 @@ ZSH_AUTOSUGGEST_STRATEGY=history
 autoload -U history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
-bindkey "^[[A" history-beginning-search-backward-end
-bindkey "^[[B" history-beginning-search-forward-end
 
+# bindkey "^[[A" history-beginning-search-backward-end
+# bindkey "^[[B" history-beginning-search-forward-end
+bindkey "^[[A" history-search-backward
+bindkey "^[[B" history-search-forward
 
 # zsh suggestions keybindings
 bindkey '^ ' autosuggest-accept

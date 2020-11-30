@@ -52,7 +52,7 @@ module-margin-right = 0
 
 font-0 = Arimo Nerd Font:size=15;1
 
-modules-left = i3 xwindow 
+modules-left = i3 spotify cmus
 modules-center = date openweathermap-simple
 modules-right =  updates-arch-combined memory filesystem pulseaudio backlight battery
 
@@ -270,6 +270,25 @@ animation-charging-3 = " "
 animation-charging-4 = " " 
 format-charging-background = ${xrdb:highlight}
 format-discharging-background = ${xrdb:background}
+
+[module/cmus]
+type = custom/script
+
+exec = ~/bin/cmus.sh
+exec-if = pgrep -x cmus
+interval = 1
+
+click-left = cmus-remote --next
+click-right = cmus-remote --prev
+click-middle = cmus-remote --pause
+scroll-up = cmus-remote --volume +5%
+scroll-down = cmus-remote --volume -5%
+
+label-font = 3
+format = ﱘ <label>
+format-padding = 1
+label = %output%
+label-maxlen = 50
 
 [module/memory]
 type = internal/memory

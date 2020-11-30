@@ -89,5 +89,5 @@ colors:
     - { index: 21, color: '0xf1f2f8' }
 
 window:
-    decorations: none
+    #decorations: none
     dynamic_title: true
